@@ -1,0 +1,72 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/evann/Programming/Alternance/Entrainement/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	/p5.9.20210110.0/
+DEFAULT_DOWNLOAD_URL	Spring/.mvn/wrapper/MavenWrapperDownloader.java	/^    private static final String DEFAULT_DOWNLOAD_URL = "https:\/\/repo.maven.apache.org\/maven2\//;"	f	class:MavenWrapperDownloader	file:
+DOWNLOAD_URL	Spring/mvnw.cmd	/^set DOWNLOAD_URL="https:\/\/repo.maven.apache.org\/maven2\/io\/takari\/maven-wrapper\/0.5.6\/mav/;"	v
+DemoApplication	Spring/src/main/java/com/example/demo/DemoApplication.java	/^public class DemoApplication {$/;"	c
+DemoApplicationTests	Spring/src/test/java/com/example/demo/DemoApplicationTests.java	/^class DemoApplicationTests {$/;"	c
+ERROR_CODE	Spring/mvnw.cmd	/^@endlocal & set ERROR_CODE=%ERROR_CODE%$/;"	v
+ERROR_CODE	Spring/mvnw.cmd	/^set ERROR_CODE=0$/;"	v
+ERROR_CODE	Spring/mvnw.cmd	/^set ERROR_CODE=1$/;"	v
+EXEC_DIR	Spring/mvnw.cmd	/^set EXEC_DIR=%CD%$/;"	v
+Game	Spring/src/main/java/com/example/demo/model/Game.java	/^    public Game(Long id2) {$/;"	m	class:Game
+Game	Spring/src/main/java/com/example/demo/model/Game.java	/^public class Game {$/;"	c
+GameController	Spring/src/main/java/com/example/demo/Controller/GameController.java	/^    public GameController() {}$/;"	m	class:GameController
+GameController	Spring/src/main/java/com/example/demo/Controller/GameController.java	/^public class GameController {$/;"	c
+Getting Started	Spring/HELP.md	/^# Getting Started$/;"	c
+Guides	Spring/HELP.md	/^### Guides$/;"	S	chapter:Getting Started
+JVM_CONFIG_MAVEN_PROPS	Spring/mvnw.cmd	/^@endlocal & set JVM_CONFIG_MAVEN_PROPS=%JVM_CONFIG_MAVEN_PROPS%$/;"	v
+JVM_CONFIG_MAVEN_PROPS	Spring/mvnw.cmd	/^for \/F "usebackq delims=" %%a in ("%MAVEN_PROJECTBASEDIR%\\.mvn\\jvm.config") do set JVM_CONFIG/;"	v
+MAVEN_CMD_LINE_ARGS	Spring/mvnw.cmd	/^set MAVEN_CMD_LINE_ARGS=%*$/;"	v
+MAVEN_OPTS	Spring/mvnw.cmd	/^@REM set MAVEN_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000$/;"	v
+MAVEN_PROJECTBASEDIR	Spring/mvnw.cmd	/^set MAVEN_PROJECTBASEDIR=%EXEC_DIR%$/;"	v
+MAVEN_PROJECTBASEDIR	Spring/mvnw.cmd	/^set MAVEN_PROJECTBASEDIR=%MAVEN_BASEDIR%$/;"	v
+MAVEN_PROJECTBASEDIR	Spring/mvnw.cmd	/^set MAVEN_PROJECTBASEDIR=%WDIR%$/;"	v
+MAVEN_WRAPPER_JAR_PATH	Spring/.mvn/wrapper/MavenWrapperDownloader.java	/^    private static final String MAVEN_WRAPPER_JAR_PATH =$/;"	f	class:MavenWrapperDownloader	file:
+MAVEN_WRAPPER_PROPERTIES_PATH	Spring/.mvn/wrapper/MavenWrapperDownloader.java	/^    private static final String MAVEN_WRAPPER_PROPERTIES_PATH =$/;"	f	class:MavenWrapperDownloader	file:
+MavenWrapperDownloader	Spring/.mvn/wrapper/MavenWrapperDownloader.java	/^public class MavenWrapperDownloader {$/;"	c
+OkJHome	Spring/mvnw.cmd	/^:OkJHome$/;"	l
+PROPERTY_NAME_WRAPPER_URL	Spring/.mvn/wrapper/MavenWrapperDownloader.java	/^    private static final String PROPERTY_NAME_WRAPPER_URL = "wrapperUrl";$/;"	f	class:MavenWrapperDownloader	file:
+Reference Documentation	Spring/HELP.md	/^### Reference Documentation$/;"	S	chapter:Getting Started
+WDIR	Spring/mvnw.cmd	/^set WDIR=%CD%$/;"	v
+WDIR	Spring/mvnw.cmd	/^set WDIR=%EXEC_DIR%$/;"	v
+WRAPPER_JAR	Spring/mvnw.cmd	/^set WRAPPER_JAR="%MAVEN_PROJECTBASEDIR%\\.mvn\\wrapper\\maven-wrapper.jar"$/;"	v
+WRAPPER_LAUNCHER	Spring/mvnw.cmd	/^set WRAPPER_LAUNCHER=org.apache.maven.wrapper.MavenWrapperMain$/;"	v
+WRAPPER_VERSION	Spring/.mvn/wrapper/MavenWrapperDownloader.java	/^    private static final String WRAPPER_VERSION = "0.5.6";$/;"	f	class:MavenWrapperDownloader	file:
+baseDirFound	Spring/mvnw.cmd	/^:baseDirFound$/;"	l
+baseDirNotFound	Spring/mvnw.cmd	/^:baseDirNotFound$/;"	l
+com.example	Spring/pom.xml	/^	<groupId>com.example<\/groupId>$/;"	g
+com.example.demo	Spring/src/main/java/com/example/demo/DemoApplication.java	/^package com.example.demo;$/;"	p
+com.example.demo	Spring/src/test/java/com/example/demo/DemoApplicationTests.java	/^package com.example.demo;$/;"	p
+com.example.demo.Controller	Spring/src/main/java/com/example/demo/Controller/GameController.java	/^package com.example.demo.Controller;$/;"	p
+com.example.demo.model	Spring/src/main/java/com/example/demo/model/Game.java	/^package com.example.demo.model;$/;"	p
+concat_lines	Spring/mvnw	/^concat_lines() {$/;"	f
+contextLoads	Spring/src/test/java/com/example/demo/DemoApplicationTests.java	/^	void contextLoads() {$/;"	m	class:DemoApplicationTests
+demo	Spring/pom.xml	/^	<artifactId>demo<\/artifactId>$/;"	a	groupId:com.example
+distributionUrl	Spring/.mvn/wrapper/maven-wrapper.properties	/^distributionUrl=https:\/\/repo.maven.apache.org\/maven2\/org\/apache\/maven\/apache-maven\/3.6.3/;"	k
+downloadFileFromURL	Spring/.mvn/wrapper/MavenWrapperDownloader.java	/^    private static void downloadFileFromURL(String urlString, File destination) throws Exception/;"	m	class:MavenWrapperDownloader	file:
+end	Spring/mvnw.cmd	/^:end$/;"	l
+endDetectBaseDir	Spring/mvnw.cmd	/^:endDetectBaseDir$/;"	l
+endReadAdditionalConfig	Spring/mvnw.cmd	/^:endReadAdditionalConfig$/;"	l
+error	Spring/mvnw.cmd	/^:error$/;"	l
+findBaseDir	Spring/mvnw.cmd	/^:findBaseDir$/;"	l
+find_maven_basedir	Spring/mvnw	/^find_maven_basedir() {$/;"	f
+id	Spring/src/main/java/com/example/demo/model/Game.java	/^    private Long id;$/;"	f	class:Game	file:
+init	Spring/mvnw.cmd	/^:init$/;"	l
+java.version	Spring/pom.xml	/^		<java.version>11<\/java.version>$/;"	p
+main	Spring/.mvn/wrapper/MavenWrapperDownloader.java	/^    public static void main(String args[]) {$/;"	m	class:MavenWrapperDownloader
+main	Spring/src/main/java/com/example/demo/DemoApplication.java	/^    public static void main(String[] args) {$/;"	m	class:DemoApplication
+ns2e1b8eb20101	Spring/pom.xml	/^	xsi:schemaLocation="http:\/\/maven.apache.org\/POM\/4.0.0 https:\/\/maven.apache.org\/xsd\/mave/;"	n	uri:http://maven.apache.org/POM/4.0.0
+one	Spring/src/main/java/com/example/demo/Controller/GameController.java	/^    Game one(@PathVariable Long id) {$/;"	m	class:GameController
+skipRcPost	Spring/mvnw.cmd	/^:skipRcPost$/;"	l
+skipRcPre	Spring/mvnw.cmd	/^:skipRcPre$/;"	l
+wrapperUrl	Spring/.mvn/wrapper/maven-wrapper.properties	/^wrapperUrl=https:\/\/repo.maven.apache.org\/maven2\/io\/takari\/maven-wrapper\/0.5.6\/maven-wrap/;"	k
+xsi	Spring/pom.xml	/^	xsi:schemaLocation="http:\/\/maven.apache.org\/POM\/4.0.0 https:\/\/maven.apache.org\/xsd\/mave/;"	n	uri:http://www.w3.org/2001/XMLSchema-instance
