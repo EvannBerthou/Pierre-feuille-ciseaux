@@ -41,6 +41,7 @@ WDIR	Spring/mvnw.cmd	/^set WDIR=%EXEC_DIR%$/;"	v
 WRAPPER_JAR	Spring/mvnw.cmd	/^set WRAPPER_JAR="%MAVEN_PROJECTBASEDIR%\\.mvn\\wrapper\\maven-wrapper.jar"$/;"	v
 WRAPPER_LAUNCHER	Spring/mvnw.cmd	/^set WRAPPER_LAUNCHER=org.apache.maven.wrapper.MavenWrapperMain$/;"	v
 WRAPPER_VERSION	Spring/.mvn/wrapper/MavenWrapperDownloader.java	/^    private static final String WRAPPER_VERSION = "0.5.6";$/;"	f	class:MavenWrapperDownloader	file:
+all	Spring/Makefile	/^all: main$/;"	t
 baseDirFound	Spring/mvnw.cmd	/^:baseDirFound$/;"	l
 baseDirNotFound	Spring/mvnw.cmd	/^:baseDirNotFound$/;"	l
 com.example	Spring/pom.xml	/^	<groupId>com.example<\/groupId>$/;"	g
@@ -63,6 +64,7 @@ id	Spring/src/main/java/com/example/demo/model/Game.java	/^    private Long id;$
 init	Spring/mvnw.cmd	/^:init$/;"	l
 java.version	Spring/pom.xml	/^		<java.version>11<\/java.version>$/;"	p
 main	Spring/.mvn/wrapper/MavenWrapperDownloader.java	/^    public static void main(String args[]) {$/;"	m	class:MavenWrapperDownloader
+main	Spring/Makefile	/^main:$/;"	t
 main	Spring/src/main/java/com/example/demo/DemoApplication.java	/^    public static void main(String[] args) {$/;"	m	class:DemoApplication
 ns2e1b8eb20101	Spring/pom.xml	/^	xsi:schemaLocation="http:\/\/maven.apache.org\/POM\/4.0.0 https:\/\/maven.apache.org\/xsd\/mave/;"	n	uri:http://maven.apache.org/POM/4.0.0
 one	Spring/src/main/java/com/example/demo/Controller/GameController.java	/^    Game one(@PathVariable Long id) {$/;"	m	class:GameController
