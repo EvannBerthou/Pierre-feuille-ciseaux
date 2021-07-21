@@ -17,10 +17,19 @@ ERROR_CODE	Spring/mvnw.cmd	/^@endlocal & set ERROR_CODE=%ERROR_CODE%$/;"	v
 ERROR_CODE	Spring/mvnw.cmd	/^set ERROR_CODE=0$/;"	v
 ERROR_CODE	Spring/mvnw.cmd	/^set ERROR_CODE=1$/;"	v
 EXEC_DIR	Spring/mvnw.cmd	/^set EXEC_DIR=%CD%$/;"	v
-Game	Spring/src/main/java/com/example/demo/model/Game.java	/^    public Game(Long id2) {$/;"	m	class:Game
+ErrorResponse	Spring/src/main/java/com/example/demo/model/ErrorResponse.java	/^    public ErrorResponse(String _error) {$/;"	m	class:ErrorResponse
+ErrorResponse	Spring/src/main/java/com/example/demo/model/ErrorResponse.java	/^public class ErrorResponse {$/;"	c
+Game	Spring/src/main/java/com/example/demo/model/Game.java	/^    public Game(Long _id) {$/;"	m	class:Game
+Game	Spring/src/main/java/com/example/demo/model/Game.java	/^    public Game(Long _id, Tour _player1, Tour _player2) {$/;"	m	class:Game
 Game	Spring/src/main/java/com/example/demo/model/Game.java	/^public class Game {$/;"	c
 GameController	Spring/src/main/java/com/example/demo/Controller/GameController.java	/^    public GameController() {}$/;"	m	class:GameController
 GameController	Spring/src/main/java/com/example/demo/Controller/GameController.java	/^public class GameController {$/;"	c
+GameEndedAdvice	Spring/src/main/java/com/example/demo/exception/GameEndedAdvice.java	/^class GameEndedAdvice {$/;"	c
+GameEndedException	Spring/src/main/java/com/example/demo/Controller/GameEndedException.java	/^    public GameEndedException(Long id) {$/;"	m	class:GameEndedException
+GameEndedException	Spring/src/main/java/com/example/demo/Controller/GameEndedException.java	/^public class GameEndedException extends RuntimeException {$/;"	c
+GameEndedException	Spring/src/main/java/com/example/demo/exception/GameEndedException.java	/^    public GameEndedException(Long id) {$/;"	m	class:GameEndedException
+GameEndedException	Spring/src/main/java/com/example/demo/exception/GameEndedException.java	/^public class GameEndedException extends RuntimeException {$/;"	c
+Games	Spring/src/main/java/com/example/demo/model/Games.java	/^public class Games {$/;"	c
 Getting Started	Spring/HELP.md	/^# Getting Started$/;"	c
 Guides	Spring/HELP.md	/^### Guides$/;"	S	chapter:Getting Started
 InvalidPlayAdvice	Spring/src/main/java/com/example/demo/exception/InvalidPlayAdvice.java	/^class InvalidPlayAdvice {$/;"	c
@@ -41,37 +50,60 @@ PROPERTY_NAME_WRAPPER_URL	Spring/.mvn/wrapper/MavenWrapperDownloader.java	/^    
 PlayResponse	Spring/src/main/java/com/example/demo/model/PlayResponse.java	/^    public PlayResponse(String _error) {$/;"	m	class:PlayResponse
 PlayResponse	Spring/src/main/java/com/example/demo/model/PlayResponse.java	/^public class PlayResponse {$/;"	c
 Reference Documentation	Spring/HELP.md	/^### Reference Documentation$/;"	S	chapter:Getting Started
+Tour	Spring/src/main/java/com/example/demo/model/Tour.java	/^    public Tour(Long _player, char _coup) {$/;"	m	class:Tour
+Tour	Spring/src/main/java/com/example/demo/model/Tour.java	/^public class Tour {$/;"	c
 WDIR	Spring/mvnw.cmd	/^set WDIR=%CD%$/;"	v
 WDIR	Spring/mvnw.cmd	/^set WDIR=%EXEC_DIR%$/;"	v
 WRAPPER_JAR	Spring/mvnw.cmd	/^set WRAPPER_JAR="%MAVEN_PROJECTBASEDIR%\\.mvn\\wrapper\\maven-wrapper.jar"$/;"	v
 WRAPPER_LAUNCHER	Spring/mvnw.cmd	/^set WRAPPER_LAUNCHER=org.apache.maven.wrapper.MavenWrapperMain$/;"	v
 WRAPPER_VERSION	Spring/.mvn/wrapper/MavenWrapperDownloader.java	/^    private static final String WRAPPER_VERSION = "0.5.6";$/;"	f	class:MavenWrapperDownloader	file:
+addTour	Spring/src/main/java/com/example/demo/model/Game.java	/^    public void addTour(Long player, char play) {$/;"	m	class:Game
 all	Spring/Makefile	/^all: main$/;"	t
 baseDirFound	Spring/mvnw.cmd	/^:baseDirFound$/;"	l
 baseDirNotFound	Spring/mvnw.cmd	/^:baseDirNotFound$/;"	l
+byId	Spring/src/main/java/com/example/demo/model/Games.java	/^    public static Game byId(Long id) {$/;"	m	class:Games
 com.example	Spring/pom.xml	/^	<groupId>com.example<\/groupId>$/;"	g
 com.example.demo	Spring/src/main/java/com/example/demo/DemoApplication.java	/^package com.example.demo;$/;"	p
 com.example.demo	Spring/src/test/java/com/example/demo/DemoApplicationTests.java	/^package com.example.demo;$/;"	p
 com.example.demo.Controller	Spring/src/main/java/com/example/demo/Controller/GameController.java	/^package com.example.demo.Controller;$/;"	p
+com.example.demo.Controller	Spring/src/main/java/com/example/demo/Controller/GameEndedException.java	/^package com.example.demo.Controller;$/;"	p
+com.example.demo.exception	Spring/src/main/java/com/example/demo/exception/GameEndedAdvice.java	/^package com.example.demo.exception;$/;"	p
+com.example.demo.exception	Spring/src/main/java/com/example/demo/exception/GameEndedException.java	/^package com.example.demo.exception;$/;"	p
 com.example.demo.exception	Spring/src/main/java/com/example/demo/exception/InvalidPlayAdvice.java	/^package com.example.demo.exception;$/;"	p
 com.example.demo.exception	Spring/src/main/java/com/example/demo/exception/InvalidPlayException.java	/^package com.example.demo.exception;$/;"	p
+com.example.demo.model	Spring/src/main/java/com/example/demo/model/ErrorResponse.java	/^package com.example.demo.model;$/;"	p
 com.example.demo.model	Spring/src/main/java/com/example/demo/model/Game.java	/^package com.example.demo.model;$/;"	p
+com.example.demo.model	Spring/src/main/java/com/example/demo/model/Games.java	/^package com.example.demo.model;$/;"	p
 com.example.demo.model	Spring/src/main/java/com/example/demo/model/PlayResponse.java	/^package com.example.demo.model;$/;"	p
+com.example.demo.model	Spring/src/main/java/com/example/demo/model/Tour.java	/^package com.example.demo.model;$/;"	p
 concat_lines	Spring/mvnw	/^concat_lines() {$/;"	f
 contextLoads	Spring/src/test/java/com/example/demo/DemoApplicationTests.java	/^	void contextLoads() {$/;"	m	class:DemoApplicationTests
+coup	Spring/src/main/java/com/example/demo/model/Tour.java	/^    private char coup;$/;"	f	class:Tour	file:
 demo	Spring/pom.xml	/^	<artifactId>demo<\/artifactId>$/;"	a	groupId:com.example
 distributionUrl	Spring/.mvn/wrapper/maven-wrapper.properties	/^distributionUrl=https:\/\/repo.maven.apache.org\/maven2\/org\/apache\/maven\/apache-maven\/3.6.3/;"	k
 downloadFileFromURL	Spring/.mvn/wrapper/MavenWrapperDownloader.java	/^    private static void downloadFileFromURL(String urlString, File destination) throws Exception/;"	m	class:MavenWrapperDownloader	file:
+employeeNotFoundHandler	Spring/src/main/java/com/example/demo/exception/GameEndedAdvice.java	/^    ErrorResponse employeeNotFoundHandler(GameEndedException ex) {$/;"	m	class:GameEndedAdvice
 employeeNotFoundHandler	Spring/src/main/java/com/example/demo/exception/InvalidPlayAdvice.java	/^    PlayResponse employeeNotFoundHandler(InvalidPlayException ex) {$/;"	m	class:InvalidPlayAdvice
 end	Spring/mvnw.cmd	/^:end$/;"	l
 endDetectBaseDir	Spring/mvnw.cmd	/^:endDetectBaseDir$/;"	l
 endReadAdditionalConfig	Spring/mvnw.cmd	/^:endReadAdditionalConfig$/;"	l
 error	Spring/mvnw.cmd	/^:error$/;"	l
+error	Spring/src/main/java/com/example/demo/model/ErrorResponse.java	/^    private String error;$/;"	f	class:ErrorResponse	file:
 error	Spring/src/main/java/com/example/demo/model/PlayResponse.java	/^    private String error;$/;"	f	class:PlayResponse	file:
 findBaseDir	Spring/mvnw.cmd	/^:findBaseDir$/;"	l
 find_maven_basedir	Spring/mvnw	/^find_maven_basedir() {$/;"	f
+gagnant	Spring/src/main/java/com/example/demo/model/Game.java	/^    private Long gagnant;$/;"	f	class:Game	file:
+games	Spring/src/main/java/com/example/demo/model/Games.java	/^    static ArrayList<Game> games = new ArrayList<Game>();$/;"	f	class:Games
+getCoup	Spring/src/main/java/com/example/demo/model/Tour.java	/^    public char getCoup() { return this.coup; }$/;"	m	class:Tour
+getError	Spring/src/main/java/com/example/demo/model/ErrorResponse.java	/^    public String getError() {$/;"	m	class:ErrorResponse
 getError	Spring/src/main/java/com/example/demo/model/PlayResponse.java	/^    public String getError() {$/;"	m	class:PlayResponse
-getId	Spring/src/main/java/com/example/demo/model/Game.java	/^    public Long getId() {$/;"	m	class:Game
+getGagnant	Spring/src/main/java/com/example/demo/model/Game.java	/^    public Long getGagnant() { return this.gagnant; }$/;"	m	class:Game
+getId	Spring/src/main/java/com/example/demo/model/Game.java	/^    public Long getId() { return this.id; }$/;"	m	class:Game
+getOrCreate	Spring/src/main/java/com/example/demo/model/Games.java	/^    public static Game getOrCreate(Long id) {$/;"	m	class:Games
+getPlayer	Spring/src/main/java/com/example/demo/model/Tour.java	/^    public Long getPlayer() { return this.player; }$/;"	m	class:Tour
+getPlayer1	Spring/src/main/java/com/example/demo/model/Game.java	/^    public Tour getPlayer1() { return this.player1; }$/;"	m	class:Game
+getPlayer2	Spring/src/main/java/com/example/demo/model/Game.java	/^    public Tour getPlayer2() { return this.player2; }$/;"	m	class:Game
+hasEnded	Spring/src/main/java/com/example/demo/model/Game.java	/^    public boolean hasEnded() {$/;"	m	class:Game
 id	Spring/src/main/java/com/example/demo/model/Game.java	/^    private Long id;$/;"	f	class:Game	file:
 init	Spring/mvnw.cmd	/^:init$/;"	l
 java.version	Spring/pom.xml	/^		<java.version>11<\/java.version>$/;"	p
@@ -79,9 +111,16 @@ log	Spring/src/main/java/com/example/demo/Controller/GameController.java	/^    p
 main	Spring/.mvn/wrapper/MavenWrapperDownloader.java	/^    public static void main(String args[]) {$/;"	m	class:MavenWrapperDownloader
 main	Spring/Makefile	/^main:$/;"	t
 main	Spring/src/main/java/com/example/demo/DemoApplication.java	/^    public static void main(String[] args) {$/;"	m	class:DemoApplication
+newGame	Spring/src/main/java/com/example/demo/model/Games.java	/^    public static Game newGame(Long id) {$/;"	m	class:Games
 ns2e1b8eb20101	Spring/pom.xml	/^	xsi:schemaLocation="http:\/\/maven.apache.org\/POM\/4.0.0 https:\/\/maven.apache.org\/xsd\/mave/;"	n	uri:http://maven.apache.org/POM/4.0.0
 one	Spring/src/main/java/com/example/demo/Controller/GameController.java	/^    Game one(@PathVariable Long id) {$/;"	m	class:GameController
-one	Spring/src/main/java/com/example/demo/Controller/GameController.java	/^    Game one(@PathVariable Long id, @PathVariable char play) {$/;"	m	class:GameController
+one	Spring/src/main/java/com/example/demo/Controller/GameController.java	/^    Game one(@PathVariable Long id, @PathVariable Long player, @PathVariable char play) {$/;"	m	class:GameController
+player	Spring/src/main/java/com/example/demo/model/Tour.java	/^    private Long player;$/;"	f	class:Tour	file:
+player1	Spring/src/main/java/com/example/demo/model/Game.java	/^    private Tour player1;$/;"	f	class:Game	file:
+player2	Spring/src/main/java/com/example/demo/model/Game.java	/^    private Tour player2;$/;"	f	class:Game	file:
+setGagnant	Spring/src/main/java/com/example/demo/model/Game.java	/^    private void setGagnant() {$/;"	m	class:Game	file:
+setPlayer1	Spring/src/main/java/com/example/demo/model/Game.java	/^    public void setPlayer1(Long player, char play) {$/;"	m	class:Game
+setPlayer2	Spring/src/main/java/com/example/demo/model/Game.java	/^    public void setPlayer2(Long player, char play) {$/;"	m	class:Game
 skipRcPost	Spring/mvnw.cmd	/^:skipRcPost$/;"	l
 skipRcPre	Spring/mvnw.cmd	/^:skipRcPre$/;"	l
 wrapperUrl	Spring/.mvn/wrapper/maven-wrapper.properties	/^wrapperUrl=https:\/\/repo.maven.apache.org\/maven2\/io\/takari\/maven-wrapper\/0.5.6\/maven-wrap/;"	k

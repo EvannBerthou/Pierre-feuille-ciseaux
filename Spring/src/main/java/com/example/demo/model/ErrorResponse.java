@@ -1,8 +1,8 @@
 package com.example.demo.model;
 
-public class PlayResponse {
+public class ErrorResponse {
     private String error;
-    public PlayResponse(String _error) {
+    public ErrorResponse(String _error) {
         this.error = _error;
     }
 
