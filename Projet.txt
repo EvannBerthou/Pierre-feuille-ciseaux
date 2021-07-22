@@ -16,3 +16,9 @@ Back-end :
 
 Front end :
     - Angular
+
+# TODO
+- Mettre en place une base de donnée
+- Faire le front-end
+- Connexion entre le back-end et le front-end
+- Gestion des utilisateurs

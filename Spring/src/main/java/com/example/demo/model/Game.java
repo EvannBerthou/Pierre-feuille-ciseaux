@@ -1,13 +1,24 @@
 package com.example.demo.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
 import com.example.demo.exception.SamePlayerException;
 
+@Entity
 public class Game {
+    @Id @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
-    private Tour player1;
-    private Tour player2;
+    @OneToOne(cascade = CascadeType.ALL) private Tour player1;
+    @OneToOne(cascade = CascadeType.ALL) private Tour player2;
     private Long winner;
     private boolean hasEnded = false;
+
+    public Game() {}
 
     public Game(Long _id) {
         this.id = _id;
@@ -25,11 +36,13 @@ public class Game {
     public Long getGagnant() { return this.winner; }
 
     public void setPlayer1(Long player, char play) {
-        this.player1 = new Tour(player, play);
+        Tour tour = new Tour(player, play);
+        this.player1 = tour;
     }
 
     public void setPlayer2(Long player, char play) {
-        this.player2 = new Tour(player, play);
+        Tour tour = new Tour(player, play);
+        this.player2 = tour;
     }
 
     public void addTour(Long player, char play) {
