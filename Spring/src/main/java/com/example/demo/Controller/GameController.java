@@ -16,19 +16,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @RestController
 public class GameController {
+    /**
+     * Est utilisé afin de faire le lien entre MySQL et la partie Java.
+     */
     @Autowired private GameRepository gameRepository;
     private static final Logger log = LoggerFactory.getLogger(GameController.class);
 
     public GameController() {}
 
     /**
-     *
+     * Crée une nouvelle partie et la renvoie
      */
-    @GetMapping("/game")
+    @PostMapping("/game")
     Game newGame() {
         Game game = new Game();
         return gameRepository.save(game);
@@ -69,8 +73,13 @@ public class GameController {
         return game;
     }
 
-    @GetMapping(path="/")
-    public @ResponseBody Iterable<Game> getAllUsers() {
+    /**
+     * Renvoie une liste des parties en fonction d'un filtre donnée
+     */
+    @GetMapping(path="/game")
+    public @ResponseBody Iterable<Game> getAllGames(@RequestParam(required = false) String filter) {
+        if (filter.equals("ended"))        return gameRepository.findByHasEnded(true);
+        else if (filter.equals("playing")) return gameRepository.findByHasEnded(false);
         return gameRepository.findAll();
     }
 }

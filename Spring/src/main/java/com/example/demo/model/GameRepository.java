@@ -1,4 +1,9 @@
 package com.example.demo.model;
-import org.springframework.data.repository.CrudRepository;
+import java.util.List;
 
-public interface GameRepository extends CrudRepository<Game, Long> { }
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
+
+public interface GameRepository extends CrudRepository<Game, Long> { 
+    List<Game> findByHasEnded(@Param("hasEnded") boolean hasEnded);
+}

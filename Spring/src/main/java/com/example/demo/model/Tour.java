@@ -7,9 +7,18 @@ import javax.persistence.Id;
 
 @Entity
 public class Tour {
+    /** 
+     * L'id unique du tour
+     */
     @Id @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
+    /**
+     * L'id du player qui a joué ce tour
+     */
     private Long player;
+    /**
+     * Son coup (peut être p,f ou c)
+     * */
     private char coup;
 
     public Tour() {}
