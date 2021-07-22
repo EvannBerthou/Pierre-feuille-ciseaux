@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import com.example.demo.model.ErrorResponse;
 
 @ControllerAdvice
-class GameEndedAdvice {
+class SamePlayerAdvice {
     @ResponseBody
-    @ExceptionHandler(GameEndedException.class)
+    @ExceptionHandler(SamePlayerException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
 
-    ErrorResponse gameEndedHandler(GameEndedException ex) {
+    ErrorResponse samePlayerHandler(SamePlayerException ex) {
         return new ErrorResponse(ex.getMessage());
     }
 }

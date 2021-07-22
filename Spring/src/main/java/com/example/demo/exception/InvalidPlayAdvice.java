@@ -13,7 +13,7 @@ class InvalidPlayAdvice {
     @ExceptionHandler(InvalidPlayException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
 
-    PlayResponse employeeNotFoundHandler(InvalidPlayException ex) {
+    PlayResponse invalidPlayHandler(InvalidPlayException ex) {
         return new PlayResponse(ex.getMessage());
     }
 }

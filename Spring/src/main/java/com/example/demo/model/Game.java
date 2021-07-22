@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import com.example.demo.exception.SamePlayerException;
+
 public class Game {
     private Long id;
     private Tour player1;
@@ -37,6 +39,10 @@ public class Game {
             return;
         }
         else if (getPlayer2() == null) {
+            // Si le même joueur joue les deux coups d'une même partie
+            if (getPlayer1().getPlayer() == player) {
+                throw new SamePlayerException(player);
+            }
             setPlayer2(player, play);
         }
 
