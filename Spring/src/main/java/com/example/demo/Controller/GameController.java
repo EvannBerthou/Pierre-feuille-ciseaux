@@ -78,6 +78,7 @@ public class GameController {
      */
     @GetMapping(path="/game")
     public @ResponseBody Iterable<Game> getAllGames(@RequestParam(required = false) String filter) {
+        if (filter == null)                return gameRepository.findAll();
         if (filter.equals("ended"))        return gameRepository.findByHasEnded(true);
         else if (filter.equals("playing")) return gameRepository.findByHasEnded(false);
         return gameRepository.findAll();
