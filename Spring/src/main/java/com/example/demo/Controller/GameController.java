@@ -7,7 +7,7 @@ import com.example.demo.exception.InvalidPlayException;
 
 import java.util.Optional;
 
-import com.example.demo.exception.GameEndedException;
+import com.example.demo.exception.InvalidGameIdException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,12 +26,20 @@ public class GameController {
     public GameController() {}
 
     /**
+     *
+     */
+    @GetMapping("/game")
+    Game newGame() {
+        Game game = new Game();
+        return gameRepository.save(game);
+    }
+
+    /**
      * Renvoie les informations d'une partie
      * @params id L'id de la partie
      */
     @GetMapping("/game/{id}")
     Game one(@PathVariable Long id) {
-        log.info("Game : " + id.toString());
         return Games.byId(id);
     }
 
@@ -44,22 +52,18 @@ public class GameController {
      * @throws InvalidPlayException Dans le cas où play n'est pas valide (différent de p,f et c)
      */
     @PostMapping("/game/{id}/{player}/{play}")
-    Game one(@PathVariable Long id, @PathVariable Long player, @PathVariable char play) {
+    Game play(@PathVariable Long id, @PathVariable Long player, @PathVariable char play) {
         if (play != 'p' && play != 'f' && play != 'c') {
             log.info("Game : " + id.toString() + " play invalide : " + play);
             throw new InvalidPlayException(play);
         }
 
-        Game game = null;
         Optional<Game> optGame = gameRepository.findById(id);
-        if (optGame.isPresent()) {
-            log.info("Game existe");
-            game = optGame.get();
-        } else {
-            log.info("New game");
-            game = new Game();
+        if (!optGame.isPresent()) {
+            throw new InvalidGameIdException(id);
         }
 
+        Game game = optGame.get();
         game.addTour(player, play);
         game = gameRepository.save(game);
         return game;

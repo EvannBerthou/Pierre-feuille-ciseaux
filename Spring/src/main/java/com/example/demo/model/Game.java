@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.example.demo.exception.GameEndedException;
 import com.example.demo.exception.SamePlayerException;
 
 @Entity
@@ -34,6 +35,7 @@ public class Game {
     public Tour getPlayer1() { return this.player1; }
     public Tour getPlayer2() { return this.player2; }
     public Long getGagnant() { return this.winner; }
+    public boolean getHasEnded() { return this.hasEnded; }
 
     public void setPlayer1(Long player, char play) {
         Tour tour = new Tour(player, play);
@@ -57,6 +59,8 @@ public class Game {
                 throw new SamePlayerException(player);
             }
             setPlayer2(player, play);
+        } else {
+            throw new GameEndedException(this.getId());
         }
 
         setGagnant();
@@ -76,6 +80,4 @@ public class Game {
             this.winner = getPlayer2().getPlayer();
         this.hasEnded = true;
     }
-
-    public boolean getHasEnded() { return this.hasEnded; }
 }
