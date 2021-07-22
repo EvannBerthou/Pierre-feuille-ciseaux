@@ -44,7 +44,9 @@ public class GameController {
      */
     @GetMapping("/game/{id}")
     Game one(@PathVariable Long id) {
-        return Games.byId(id);
+        Optional<Game> optGame = gameRepository.findById(id);
+        if (optGame.isEmpty()) return null;
+        return optGame.get();
     }
 
     /**
