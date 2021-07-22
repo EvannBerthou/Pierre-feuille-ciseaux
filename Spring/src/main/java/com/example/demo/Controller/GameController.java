@@ -2,7 +2,6 @@ package com.example.demo.Controller;
 
 import com.example.demo.model.Game;
 import com.example.demo.model.GameRepository;
-import com.example.demo.model.Games;
 import com.example.demo.exception.InvalidPlayException;
 
 import java.util.Optional;
