@@ -44,7 +44,7 @@ public class GameController {
         }
         log.info("Game : " + id.toString() + " plays : " + play);
         Game game = Games.getOrCreate(id);
-        if (game.hasEnded()) {
+        if (game.getHasEnded()) {
             throw new GameEndedException(id);
         }
         game.addTour(player, play);

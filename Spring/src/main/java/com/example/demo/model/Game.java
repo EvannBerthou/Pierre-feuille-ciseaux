@@ -4,7 +4,8 @@ public class Game {
     private Long id;
     private Tour player1;
     private Tour player2;
-    private Long gagnant;
+    private Long winner;
+    private boolean hasEnded = false;
 
     public Game(Long _id) {
         this.id = _id;
@@ -19,7 +20,7 @@ public class Game {
     public Long getId() { return this.id; }
     public Tour getPlayer1() { return this.player1; }
     public Tour getPlayer2() { return this.player2; }
-    public Long getGagnant() { return this.gagnant; }
+    public Long getGagnant() { return this.winner; }
 
     public void setPlayer1(Long player, char play) {
         this.player1 = new Tour(player, play);
@@ -47,16 +48,15 @@ public class Game {
         char c2 = getPlayer2().getCoup();
 
         // Egalité
-        if (c1 == c2) this.gagnant = null;
+        if (c1 == c2) this.winner = null;
         // Si le joueur1 a fait un coup gagnant contre le joueur2 alors il gagne
         if ((c1 == 'p' && c2 == 'c') || (c1 == 'f' && c2 == 'p') || (c1 == 'c' && c2 == 'f')) 
-            this.gagnant = getPlayer1().getPlayer();
+            this.winner = getPlayer1().getPlayer();
         // Sinon le joueur 2 gagne.
         else
-            this.gagnant = getPlayer2().getPlayer();
+            this.winner = getPlayer2().getPlayer();
+        this.hasEnded = true;
     }
 
-    public boolean hasEnded() {
-        return getPlayer1() != null && getPlayer2() != null;
-    }
+    public boolean getHasEnded() { return this.hasEnded; }
 }

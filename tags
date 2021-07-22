@@ -25,8 +25,6 @@ Game	Spring/src/main/java/com/example/demo/model/Game.java	/^public class Game {
 GameController	Spring/src/main/java/com/example/demo/Controller/GameController.java	/^    public GameController() {}$/;"	m	class:GameController
 GameController	Spring/src/main/java/com/example/demo/Controller/GameController.java	/^public class GameController {$/;"	c
 GameEndedAdvice	Spring/src/main/java/com/example/demo/exception/GameEndedAdvice.java	/^class GameEndedAdvice {$/;"	c
-GameEndedException	Spring/src/main/java/com/example/demo/Controller/GameEndedException.java	/^    public GameEndedException(Long id) {$/;"	m	class:GameEndedException
-GameEndedException	Spring/src/main/java/com/example/demo/Controller/GameEndedException.java	/^public class GameEndedException extends RuntimeException {$/;"	c
 GameEndedException	Spring/src/main/java/com/example/demo/exception/GameEndedException.java	/^    public GameEndedException(Long id) {$/;"	m	class:GameEndedException
 GameEndedException	Spring/src/main/java/com/example/demo/exception/GameEndedException.java	/^public class GameEndedException extends RuntimeException {$/;"	c
 Games	Spring/src/main/java/com/example/demo/model/Games.java	/^public class Games {$/;"	c
@@ -47,8 +45,6 @@ MAVEN_WRAPPER_PROPERTIES_PATH	Spring/.mvn/wrapper/MavenWrapperDownloader.java	/^
 MavenWrapperDownloader	Spring/.mvn/wrapper/MavenWrapperDownloader.java	/^public class MavenWrapperDownloader {$/;"	c
 OkJHome	Spring/mvnw.cmd	/^:OkJHome$/;"	l
 PROPERTY_NAME_WRAPPER_URL	Spring/.mvn/wrapper/MavenWrapperDownloader.java	/^    private static final String PROPERTY_NAME_WRAPPER_URL = "wrapperUrl";$/;"	f	class:MavenWrapperDownloader	file:
-PlayResponse	Spring/src/main/java/com/example/demo/model/PlayResponse.java	/^    public PlayResponse(String _error) {$/;"	m	class:PlayResponse
-PlayResponse	Spring/src/main/java/com/example/demo/model/PlayResponse.java	/^public class PlayResponse {$/;"	c
 Reference Documentation	Spring/HELP.md	/^### Reference Documentation$/;"	S	chapter:Getting Started
 Tour	Spring/src/main/java/com/example/demo/model/Tour.java	/^    public Tour(Long _player, char _coup) {$/;"	m	class:Tour
 Tour	Spring/src/main/java/com/example/demo/model/Tour.java	/^public class Tour {$/;"	c
@@ -66,7 +62,6 @@ com.example	Spring/pom.xml	/^	<groupId>com.example<\/groupId>$/;"	g
 com.example.demo	Spring/src/main/java/com/example/demo/DemoApplication.java	/^package com.example.demo;$/;"	p
 com.example.demo	Spring/src/test/java/com/example/demo/DemoApplicationTests.java	/^package com.example.demo;$/;"	p
 com.example.demo.Controller	Spring/src/main/java/com/example/demo/Controller/GameController.java	/^package com.example.demo.Controller;$/;"	p
-com.example.demo.Controller	Spring/src/main/java/com/example/demo/Controller/GameEndedException.java	/^package com.example.demo.Controller;$/;"	p
 com.example.demo.exception	Spring/src/main/java/com/example/demo/exception/GameEndedAdvice.java	/^package com.example.demo.exception;$/;"	p
 com.example.demo.exception	Spring/src/main/java/com/example/demo/exception/GameEndedException.java	/^package com.example.demo.exception;$/;"	p
 com.example.demo.exception	Spring/src/main/java/com/example/demo/exception/InvalidPlayAdvice.java	/^package com.example.demo.exception;$/;"	p
@@ -74,7 +69,6 @@ com.example.demo.exception	Spring/src/main/java/com/example/demo/exception/Inval
 com.example.demo.model	Spring/src/main/java/com/example/demo/model/ErrorResponse.java	/^package com.example.demo.model;$/;"	p
 com.example.demo.model	Spring/src/main/java/com/example/demo/model/Game.java	/^package com.example.demo.model;$/;"	p
 com.example.demo.model	Spring/src/main/java/com/example/demo/model/Games.java	/^package com.example.demo.model;$/;"	p
-com.example.demo.model	Spring/src/main/java/com/example/demo/model/PlayResponse.java	/^package com.example.demo.model;$/;"	p
 com.example.demo.model	Spring/src/main/java/com/example/demo/model/Tour.java	/^package com.example.demo.model;$/;"	p
 concat_lines	Spring/mvnw	/^concat_lines() {$/;"	f
 contextLoads	Spring/src/test/java/com/example/demo/DemoApplicationTests.java	/^	void contextLoads() {$/;"	m	class:DemoApplicationTests
@@ -89,21 +83,19 @@ endDetectBaseDir	Spring/mvnw.cmd	/^:endDetectBaseDir$/;"	l
 endReadAdditionalConfig	Spring/mvnw.cmd	/^:endReadAdditionalConfig$/;"	l
 error	Spring/mvnw.cmd	/^:error$/;"	l
 error	Spring/src/main/java/com/example/demo/model/ErrorResponse.java	/^    private String error;$/;"	f	class:ErrorResponse	file:
-error	Spring/src/main/java/com/example/demo/model/PlayResponse.java	/^    private String error;$/;"	f	class:PlayResponse	file:
 findBaseDir	Spring/mvnw.cmd	/^:findBaseDir$/;"	l
 find_maven_basedir	Spring/mvnw	/^find_maven_basedir() {$/;"	f
-gagnant	Spring/src/main/java/com/example/demo/model/Game.java	/^    private Long gagnant;$/;"	f	class:Game	file:
 games	Spring/src/main/java/com/example/demo/model/Games.java	/^    static ArrayList<Game> games = new ArrayList<Game>();$/;"	f	class:Games
 getCoup	Spring/src/main/java/com/example/demo/model/Tour.java	/^    public char getCoup() { return this.coup; }$/;"	m	class:Tour
 getError	Spring/src/main/java/com/example/demo/model/ErrorResponse.java	/^    public String getError() {$/;"	m	class:ErrorResponse
-getError	Spring/src/main/java/com/example/demo/model/PlayResponse.java	/^    public String getError() {$/;"	m	class:PlayResponse
-getGagnant	Spring/src/main/java/com/example/demo/model/Game.java	/^    public Long getGagnant() { return this.gagnant; }$/;"	m	class:Game
+getGagnant	Spring/src/main/java/com/example/demo/model/Game.java	/^    public Long getGagnant() { return this.winner; }$/;"	m	class:Game
+getHasEnded	Spring/src/main/java/com/example/demo/model/Game.java	/^    public boolean getHasEnded() { return this.hasEnded; }$/;"	m	class:Game
 getId	Spring/src/main/java/com/example/demo/model/Game.java	/^    public Long getId() { return this.id; }$/;"	m	class:Game
 getOrCreate	Spring/src/main/java/com/example/demo/model/Games.java	/^    public static Game getOrCreate(Long id) {$/;"	m	class:Games
 getPlayer	Spring/src/main/java/com/example/demo/model/Tour.java	/^    public Long getPlayer() { return this.player; }$/;"	m	class:Tour
 getPlayer1	Spring/src/main/java/com/example/demo/model/Game.java	/^    public Tour getPlayer1() { return this.player1; }$/;"	m	class:Game
 getPlayer2	Spring/src/main/java/com/example/demo/model/Game.java	/^    public Tour getPlayer2() { return this.player2; }$/;"	m	class:Game
-hasEnded	Spring/src/main/java/com/example/demo/model/Game.java	/^    public boolean hasEnded() {$/;"	m	class:Game
+hasEnded	Spring/src/main/java/com/example/demo/model/Game.java	/^    private boolean hasEnded = false;$/;"	f	class:Game	file:
 id	Spring/src/main/java/com/example/demo/model/Game.java	/^    private Long id;$/;"	f	class:Game	file:
 init	Spring/mvnw.cmd	/^:init$/;"	l
 java.version	Spring/pom.xml	/^		<java.version>11<\/java.version>$/;"	p
@@ -123,5 +115,6 @@ setPlayer1	Spring/src/main/java/com/example/demo/model/Game.java	/^    public vo
 setPlayer2	Spring/src/main/java/com/example/demo/model/Game.java	/^    public void setPlayer2(Long player, char play) {$/;"	m	class:Game
 skipRcPost	Spring/mvnw.cmd	/^:skipRcPost$/;"	l
 skipRcPre	Spring/mvnw.cmd	/^:skipRcPre$/;"	l
+winner	Spring/src/main/java/com/example/demo/model/Game.java	/^    private Long winner;$/;"	f	class:Game	file:
 wrapperUrl	Spring/.mvn/wrapper/maven-wrapper.properties	/^wrapperUrl=https:\/\/repo.maven.apache.org\/maven2\/io\/takari\/maven-wrapper\/0.5.6\/maven-wrap/;"	k
 xsi	Spring/pom.xml	/^	xsi:schemaLocation="http:\/\/maven.apache.org\/POM\/4.0.0 https:\/\/maven.apache.org\/xsd\/mave/;"	n	uri:http://www.w3.org/2001/XMLSchema-instance
