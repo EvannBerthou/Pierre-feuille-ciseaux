@@ -4,6 +4,7 @@ Site de duel de pierre-feuille-ciseaux
 
 Utilisation du site : 
     - Page d'accueil avec une liste de toutes les personnes en attente d'un adversaire
+        - Afficher les parties de la plus ancienne à la plus récente afin d'éviter d'attendre trop longtemps
         - Une fois un adversaire choisis, la partie se lance, chaque joueur choisis son jeu.
         - Lorsque les deux joueurs ont fait leur choix, le gagnant est annoncé
     - Création d'une partie avec 
@@ -18,7 +19,7 @@ Front end :
     - Angular
 
 # TODO
-- Mettre en place une base de donnée
 - Faire le front-end
 - Connexion entre le back-end et le front-end
 - Gestion des utilisateurs
+    - Filtre des joueurs par classement
