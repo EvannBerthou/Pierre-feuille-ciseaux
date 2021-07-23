@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import java.util.Date;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,14 +12,16 @@ import javax.persistence.OneToOne;
 import com.example.demo.exception.GameEndedException;
 import com.example.demo.exception.SamePlayerException;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 @Entity
 public class Game {
-    @Id @GeneratedValue(strategy=GenerationType.AUTO)
-    private Long id;
+    @Id @GeneratedValue(strategy=GenerationType.AUTO) private Long id;
     @OneToOne(cascade = CascadeType.ALL) private Tour player1;
     @OneToOne(cascade = CascadeType.ALL) private Tour player2;
     private Long winner;
     private boolean hasEnded = false;
+    @CreationTimestamp private Date creationDate;
 
     public Game() {}
 
@@ -36,6 +40,7 @@ public class Game {
     public Tour getPlayer2() { return this.player2; }
     public Long getGagnant() { return this.winner; }
     public boolean getHasEnded() { return this.hasEnded; }
+    public Date getCreationDate() { return this.creationDate; }
 
     public void setPlayer1(Long player, char play) {
         Tour tour = new Tour(player, play);

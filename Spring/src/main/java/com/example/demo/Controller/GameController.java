@@ -82,6 +82,7 @@ public class GameController {
         if (filter == null)                return gameRepository.findAll();
         if (filter.equals("ended"))        return gameRepository.findByHasEnded(true);
         else if (filter.equals("playing")) return gameRepository.findByHasEnded(false);
+        else if (filter.equals("sort"))    return gameRepository.findByOrderByCreationDateAsc();
         return gameRepository.findAll();
     }
 }
