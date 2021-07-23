@@ -1,0 +1,6 @@
+<div *ngIf = "data != null; else elseBlock">
+    <p>Partie avec l'id : {{gameid}} </p>
+</div>
+<ng-template #elseBlock> 
+    <p> Aucune partie avec l'id {{gameid}} trouvé </p>
+</ng-template>
