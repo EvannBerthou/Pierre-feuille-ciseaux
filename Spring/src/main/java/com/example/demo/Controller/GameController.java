@@ -5,7 +5,6 @@ import com.example.demo.model.GameRepository;
 import com.example.demo.exception.InvalidPlayException;
 
 import java.util.Optional;
-
 import com.example.demo.exception.InvalidGameIdException;
 
 import org.slf4j.Logger;
