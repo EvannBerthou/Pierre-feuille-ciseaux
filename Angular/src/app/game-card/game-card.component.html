@@ -3,7 +3,7 @@
         Id : {{game.id}}
         <ul>
             <div *ngIf = "game.hasEnded; else elseBlock"> 
-                <li> Résultat : {{game.gagnant}} </li>
+                <li> Résultat : {{game.gagnant || "Egalité"}} </li>
             </div>
             <ng-template #elseBlock> 
                 <li> Partie en cours </li>
