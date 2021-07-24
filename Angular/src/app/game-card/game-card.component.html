@@ -1,11 +1,13 @@
 <li>
-    Id : {{game.id}}
-    <ul>
-        <div *ngIf = "game.hasEnded; else elseBlock"> 
-            <li> Résultat : {{game.gagnant}} </li>
-        </div>
-        <ng-template #elseBlock> 
-            <li> Partie en cours </li>
-        </ng-template>
-    </ul>
+    <div (click)="gameDetails()">
+        Id : {{game.id}}
+        <ul>
+            <div *ngIf = "game.hasEnded; else elseBlock"> 
+                <li> Résultat : {{game.gagnant}} </li>
+            </div>
+            <ng-template #elseBlock> 
+                <li> Partie en cours </li>
+            </ng-template>
+        </ul>
+    </div>
 </li>
