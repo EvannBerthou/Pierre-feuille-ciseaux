@@ -76,13 +76,17 @@ public class Game {
         char c2 = getPlayer2().getCoup();
 
         // Egalité
-        if (c1 == c2) this.winner = null;
+        if (c1 == c2) { 
+            this.winner = null;
+        }
         // Si le joueur1 a fait un coup gagnant contre le joueur2 alors il gagne
-        if ((c1 == 'p' && c2 == 'c') || (c1 == 'f' && c2 == 'p') || (c1 == 'c' && c2 == 'f')) 
+        else if ((c1 == 'p' && c2 == 'c') || (c1 == 'f' && c2 == 'p') || (c1 == 'c' && c2 == 'f')) {
             this.winner = getPlayer1().getPlayer();
+        }
         // Sinon le joueur 2 gagne.
-        else
+        else {
             this.winner = getPlayer2().getPlayer();
+        }
         this.hasEnded = true;
     }
 }
