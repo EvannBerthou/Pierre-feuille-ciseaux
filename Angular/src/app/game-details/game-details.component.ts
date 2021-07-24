@@ -11,6 +11,8 @@ export class GameDetailsComponent implements OnInit {
     gameid: Number | undefined;
     data: any;
 
+    classesHeaders: string[] = [];
+
     constructor(private activatedRoute: ActivatedRoute, private http: HttpClient) { }
 
     ngOnInit(): void { 
@@ -19,6 +21,15 @@ export class GameDetailsComponent implements OnInit {
             this.gameid = paramId;
             this.http.get<any>('http://localhost:8080/game/' + this.gameid).subscribe((recv) => {
                 this.data = recv;
+                if (this.data.hasEnded) {
+                    // S'il y a égalité
+                    if (this.data.gagnant == null) {
+                        this.classesHeaders = ["draw", "draw"];
+                    } else {
+                        this.classesHeaders[0] = this.data.player1.player === this.data.gagnant ? "winner" : "looser";
+                        this.classesHeaders[1] = this.data.player2.player === this.data.gagnant ? "winner" : "looser";
+                    }
+                }
             });
         }
     }

@@ -3,8 +3,8 @@
 
     <table id="card">
         <tr>
-        <th [ngStyle] = "{'color': data.gagnant == data.player1.player ? 'green' : 'black'}"> Joueur 1 </th>
-        <th [ngStyle] = "{'color': data.gagnant == data.player2.player ? 'green' : 'black'}"> Joueur 2 </th>
+        <th [ngClass] = "classesHeaders[0]"> Joueur 1 </th>
+        <th [ngClass] = "classesHeaders[1]"> Joueur 2 </th>
 
         <tr>
             <td> <app-game-details-move [move] = 'data.player1'> </app-game-details-move> </td>

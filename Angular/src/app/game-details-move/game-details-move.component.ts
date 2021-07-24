@@ -9,6 +9,6 @@ export class GameDetailsMoveComponent {
     @Input() move: any;
 
     getClass(play: string) {
-        return this.move.coup == play ? "active" : "inactive";
+        return this.move?.coup == play ? "active" : "inactive";
     }
 }
