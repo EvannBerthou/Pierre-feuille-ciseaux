@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class GameDetailsComponent implements OnInit {
     gameid: Number = -1;
     data: any;
+
     constructor(private activatedRoute: ActivatedRoute, private http: HttpClient) { }
 
     ngOnInit(): void { 

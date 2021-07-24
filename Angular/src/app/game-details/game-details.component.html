@@ -1,5 +1,17 @@
 <div *ngIf = "data != null; else elseBlock">
     <p>Partie avec l'id : {{gameid}} </p>
+
+    <table id="card">
+        <tr>
+        <th [ngStyle] = "{'color': data.gagnant == data.player1.player ? 'green' : 'black'}"> Joueur 1 </th>
+        <th [ngStyle] = "{'color': data.gagnant == data.player2.player ? 'green' : 'black'}"> Joueur 2 </th>
+
+        <tr>
+            <td> <app-game-details-move [move] = 'data.player1'> </app-game-details-move> </td>
+            <td> <app-game-details-move [move] = 'data.player2'> </app-game-details-move> </td>
+        </tr>
+    </table>
+
 </div>
 <ng-template #elseBlock> 
     <p> Aucune partie avec l'id {{gameid}} trouvé </p>
