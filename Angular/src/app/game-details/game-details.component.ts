@@ -19,8 +19,8 @@ export class GameDetailsComponent implements OnInit {
         let paramId = this.activatedRoute.snapshot.params.gameid
         if (paramId !== null) {
             this.gameid = paramId;
-            this.http.get<any>('http://localhost:8080/game/' + this.gameid).subscribe((recv) => {
-                this.data = recv;
+            this.http.get<any>('http://localhost:8080/game/' + this.gameid).subscribe((response) => {
+                this.data = response;
                 if (this.data.hasEnded) {
                     // S'il y a égalité
                     if (this.data.gagnant == null) {
