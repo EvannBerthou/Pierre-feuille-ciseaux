@@ -19,16 +19,18 @@ export class GamePlayComponent implements OnInit {
         this.gameid = paramId;
         this.http.get<any>('http://localhost:8080/game/' + this.gameid).subscribe((response) => {
             this.data = response;
+            if (this.data.hasEnded) {
+                this.router.navigate(['/game/', this.gameid]); 
+            }
         });
     }
 
     play(play: string): void {
         //TODO: Moyen temporaire de simuler différent joueur
         const playerid = Math.floor(Math.random() * 100);
-        const path = `http://localhost:8080/game/${this.gameid}/${playerid}/${play}`
-            this.http.post<any>(path, {}).subscribe(
-                () => this.router.navigate(['/game/', this.gameid]),
-                err => { alert(err.error.error); }
+        const path = `http://localhost:8080/game/${this.gameid}/${playerid}/${play}`;
+        this.http.post<any>(path, {}).subscribe(
+            _ => this.router.navigate(['/game/', this.gameid])
         );
     }
 }

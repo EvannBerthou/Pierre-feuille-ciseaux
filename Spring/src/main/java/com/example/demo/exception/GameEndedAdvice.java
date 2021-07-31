@@ -12,8 +12,7 @@ import com.example.demo.model.ErrorResponse;
 class GameEndedAdvice {
     @ResponseBody
     @ExceptionHandler(GameEndedException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-
+    @ResponseStatus(HttpStatus.CONFLICT)
     ErrorResponse gameEndedHandler(GameEndedException ex) {
         return new ErrorResponse(ex.getMessage());
     }
