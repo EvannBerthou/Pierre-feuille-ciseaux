@@ -17,20 +17,19 @@ export class GameDetailsComponent implements OnInit {
 
     ngOnInit(): void { 
         let paramId = this.activatedRoute.snapshot.params.gameid
-        if (paramId !== null) {
-            this.gameid = paramId;
-            this.http.get<any>('http://localhost:8080/game/' + this.gameid).subscribe((response) => {
-                this.data = response;
-                if (this.data.hasEnded) {
-                    // S'il y a égalité
-                    if (this.data.gagnant == null) {
-                        this.classesHeaders = ["draw", "draw"];
-                    } else {
-                        this.classesHeaders[0] = this.data.player1.player === this.data.gagnant ? "winner" : "looser";
-                        this.classesHeaders[1] = this.data.player2.player === this.data.gagnant ? "winner" : "looser";
-                    }
+        if (paramId === null) { return; }
+        this.gameid = paramId;
+        this.http.get<any>('http://localhost:8080/game/' + this.gameid).subscribe((response) => {
+            this.data = response;
+            if (this.data.hasEnded) {
+                // S'il y a égalité
+                if (this.data.gagnant == null) {
+                    this.classesHeaders = ["draw", "draw"];
+                } else {
+                    this.classesHeaders[0] = this.data.player1.player === this.data.gagnant ? "winner" : "looser";
+                    this.classesHeaders[1] = this.data.player2.player === this.data.gagnant ? "winner" : "looser";
                 }
-            });
-        }
+            }
+        });
     }
 }

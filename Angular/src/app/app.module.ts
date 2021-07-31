@@ -9,6 +9,7 @@ import { GameCardComponent } from './game-card/game-card.component';
 import { GameDetailsComponent } from './game-details/game-details.component';
 import { GameDetailsMoveComponent } from './game-details-move/game-details-move.component';
 import { HomeComponent } from './home/home.component';
+import { GamePlayComponent } from './game-play/game-play.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { HomeComponent } from './home/home.component';
     GameDetailsComponent,
     GameDetailsMoveComponent,
     HomeComponent,
+    GamePlayComponent,
   ],
   imports: [
     BrowserModule,

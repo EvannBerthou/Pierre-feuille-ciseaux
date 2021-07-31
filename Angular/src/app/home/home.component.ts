@@ -13,7 +13,7 @@ export class HomeComponent {
 
     newGame(): void {
         this.http.post<any>('http://localhost:8080/game/', {}).subscribe((response) => {
-            this.router.navigate(['/game/', response['id']]);
+            this.router.navigate(['/play/', response['id']]);
         });
     }
 }

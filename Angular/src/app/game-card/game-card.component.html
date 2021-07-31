@@ -1,5 +1,6 @@
 <li>
-    <div (click)="gameDetails()">
+
+    <div (click)="goToCard()">
         Id : {{game.id}}
         <ul>
             <div *ngIf = "game.hasEnded; else elseBlock"> 

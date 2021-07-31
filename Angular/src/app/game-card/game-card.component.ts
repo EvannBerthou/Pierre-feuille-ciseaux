@@ -11,7 +11,11 @@ export class GameCardComponent implements OnInit {
     constructor(private router: Router) { }
     ngOnInit(): void { }
 
-    gameDetails() {
-        this.router.navigate(['/game/', this.game.id]);
+    goToCard() {
+        if (this.game.hasEnded) {
+            this.router.navigate(['/game/', this.game.id]);
+        } else {
+            this.router.navigate(['/play/', this.game.id]);
+        }
     }
 }
