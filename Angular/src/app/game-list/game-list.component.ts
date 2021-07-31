@@ -12,9 +12,14 @@ export class GameListComponent implements OnInit {
     constructor(private http: HttpClient) { }
 
     ngOnInit() {
-        this.http.get<any>('http://localhost:8080/game').subscribe((recv) => {
-            this.data = recv;
-            console.log(this.data);
-        });
+        this.http.get<any>('http://localhost:8080/game').subscribe(
+            (response) => {
+                this.data = response;
+                console.log(this.data);
+            },
+            (error) => {
+                console.error("Error" + error);
+            }
+        );
     }
 }
