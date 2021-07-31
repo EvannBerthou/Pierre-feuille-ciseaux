@@ -21,6 +21,7 @@ export class GameDetailsComponent implements OnInit {
         this.gameid = paramId;
         this.http.get<any>('http://localhost:8080/game/' + this.gameid).subscribe((response) => {
             this.data = response;
+            if (this.data === null) return;
             if (this.data.hasEnded) {
                 // S'il y a égalité
                 if (this.data.gagnant == null) {

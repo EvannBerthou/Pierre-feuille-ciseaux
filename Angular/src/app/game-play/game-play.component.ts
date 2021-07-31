@@ -3,9 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
-  selector: 'app-game-play',
-  templateUrl: './game-play.component.html',
-  styleUrls: ['./game-play.component.scss']
+    selector: 'app-game-play',
+    templateUrl: './game-play.component.html',
+    styleUrls: ['./game-play.component.scss']
 })
 export class GamePlayComponent implements OnInit {
     gameid: Number | undefined;
@@ -27,7 +27,7 @@ export class GamePlayComponent implements OnInit {
         const playerid = Math.floor(Math.random() * 100);
         this.http.post<any>(`http://localhost:8080/game/${this.gameid}/${playerid}/${play}`, {}).subscribe((response) => {
             console.log(response);
-            this.router.navigate(['/game/', this.gameid]);
+        this.router.navigate(['/game/', this.gameid]);
         });
     }
 }
