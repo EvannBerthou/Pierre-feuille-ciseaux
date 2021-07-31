@@ -75,14 +75,26 @@ public class GameController {
 
     /**
      * Renvoie une liste des parties en fonction d'un filtre donnée
-     * TODO: L'API renvoie aussi les coups joué dans les parties non terminés, cela permet de savoir ce qui a été joué et donc de gagner toutes ses parties.
      */
     @GetMapping("/game")
     public @ResponseBody Iterable<Game> getAllGames(@RequestParam(required = false) String filter) {
-        if (filter == null)                return gameRepository.findAll();
+        if (filter == null)                return hideToursOnPlayingGames(gameRepository.findAll());
         if (filter.equals("ended"))        return gameRepository.findByHasEnded(true);
         else if (filter.equals("playing")) return gameRepository.findByHasEnded(false);
         else if (filter.equals("sort"))    return gameRepository.findByOrderByCreationDateAsc();
-        return gameRepository.findAll();
+        return hideToursOnPlayingGames(gameRepository.findAll());
+    }
+
+    /**
+     * Cache le coup des joueurs des parties non terminés. Cela permet d'éviter qu'un autre joueur puisse
+     * savoir le coup à jouer à l'avance.
+     */
+    private Iterable<Game> hideToursOnPlayingGames(Iterable<Game> games) {
+        for (Game game : games) {
+            if (!game.getHasEnded()) {
+                game.clearTours();
+            }
+        }
+        return games;
     }
 }

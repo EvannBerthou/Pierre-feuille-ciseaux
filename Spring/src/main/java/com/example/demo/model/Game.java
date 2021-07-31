@@ -89,4 +89,9 @@ public class Game {
         }
         this.hasEnded = true;
     }
+
+    public void clearTours() {
+        this.player1 = null;
+        this.player2 = null;
+    }
 }
