@@ -21,8 +21,17 @@ public class UserService {
     }
 
     public User getUserLoginFromRequest(HttpServletRequest request) {
-		String authToken = request.getHeader("Authorization").substring("Basic".length()).trim();
+        String header = request.getHeader("Authorization");
+        if (header == null) {
+            return new User();
+        }
+
+		String authToken = header.substring("Basic".length()).trim();
 		String[] parts = new String(Base64.getDecoder().decode(authToken)).split(":");
+        if (parts.length != 2) {
+            return new User();
+        }
+
         String tokenUsername = parts[0];
         String tokenPassword = parts[1];
         return new User(tokenUsername, tokenPassword);
