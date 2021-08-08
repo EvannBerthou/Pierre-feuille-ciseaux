@@ -14,6 +14,7 @@ import {HttpInterceptorInterceptor} from './http-interceptor.interceptor';
 import {AuthenticationService} from './authentication.service';
 import { LoginComponent } from './login/login.component';
 import {AuthGuardService} from './auth-guard.service';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import {AuthGuardService} from './auth-guard.service';
     HomeComponent,
     GamePlayComponent,
     LoginComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,

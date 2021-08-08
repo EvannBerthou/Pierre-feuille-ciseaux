@@ -26,8 +26,8 @@ public class UserService {
             return new User();
         }
 
-		String authToken = header.substring("Basic".length()).trim();
-		String[] parts = new String(Base64.getDecoder().decode(authToken)).split(":");
+        String authToken = header.substring("Basic".length()).trim();
+        String[] parts = new String(Base64.getDecoder().decode(authToken)).split(":");
         if (parts.length != 2) {
             return new User();
         }

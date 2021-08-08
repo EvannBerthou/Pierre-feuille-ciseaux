@@ -7,7 +7,6 @@ import { HttpClient } from '@angular/common/http';
     styleUrls: ['./game-list.component.scss']
 })
 export class GameListComponent implements OnInit {
-    title = 'Angular';
     data : any;
     constructor(private http: HttpClient) { }
 
