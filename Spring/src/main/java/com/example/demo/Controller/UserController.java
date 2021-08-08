@@ -21,8 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @CrossOrigin
 public class UserController {
-
     @Autowired private MyUserDetailsService myUserDetailsService;
+
     private boolean isValidLogin(String username, String password) {
         UserDetails details = myUserDetailsService.loadUserByUsername(username);
         return details.getUsername().equals(username) && 
