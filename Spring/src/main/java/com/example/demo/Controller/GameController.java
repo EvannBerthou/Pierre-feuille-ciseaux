@@ -2,9 +2,13 @@ package com.example.demo.Controller;
 
 import com.example.demo.model.Game;
 import com.example.demo.model.GameRepository;
+import com.example.demo.model.UserService;
 import com.example.demo.exception.InvalidPlayException;
 
 import java.util.Optional;
+
+import javax.servlet.http.HttpServletRequest;
+
 import com.example.demo.exception.InvalidGameIdException;
 
 import org.slf4j.Logger;
@@ -24,6 +28,8 @@ public class GameController {
      */
     @Autowired private GameRepository gameRepository;
     private static final Logger log = LoggerFactory.getLogger(GameController.class);
+    
+    @Autowired private UserService userService;
 
     public GameController() {}
 
@@ -55,18 +61,19 @@ public class GameController {
      *
      * @throws InvalidPlayException Dans le cas où play n'est pas valide (différent de p,f et c)
      */
-    @PostMapping("/game/{id}/{play}")
-    Game play(@PathVariable Long id, @PathVariable char play) {
-        Long playerId = 0L;
+    @PostMapping("/game/{gameId}/{play}")
+    Game play(HttpServletRequest request, @PathVariable Long gameId, @PathVariable char play) {
+        Long playerId = userService.getUserIdFromRequest(request);
+        if (playerId == -1L) return null;
 
         if (play != 'p' && play != 'f' && play != 'c') {
-            log.info("Game : " + id.toString() + " play invalide : " + play);
+            log.info("Game : " + gameId.toString() + " play invalide : " + play);
             throw new InvalidPlayException(play);
         }
 
-        Optional<Game> optGame = gameRepository.findById(id);
+        Optional<Game> optGame = gameRepository.findById(gameId);
         if (!optGame.isPresent()) {
-            throw new InvalidGameIdException(id);
+            throw new InvalidGameIdException(gameId);
         }
 
         Game game = optGame.get();

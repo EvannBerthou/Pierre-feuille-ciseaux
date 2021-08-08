@@ -19,7 +19,7 @@ export class GamePlayComponent implements OnInit {
         this.gameid = paramId;
         this.http.get<any>('http://localhost:8080/game/' + this.gameid).subscribe((response) => {
             this.data = response;
-            if (this.data.hasEnded) {
+            if (this.data.ended) {
                 this.router.navigate(['/game/', this.gameid]); 
             }
         });

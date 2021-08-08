@@ -1,5 +1,5 @@
 <div *ngIf = "data != null; else elseBlock">
-    <div *ngIf = "data.hasEnded; else elseEnded">
+    <div *ngIf = "data.ended; else elseEnded">
         <p>Partie avec l'id : {{gameid}} </p>
 
         <table id="card">

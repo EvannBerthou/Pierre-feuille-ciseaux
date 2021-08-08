@@ -3,8 +3,8 @@
     <div (click)="goToCard()">
         Id : {{game.id}}
         <ul>
-            <div *ngIf = "game.hasEnded; else elseBlock"> 
-                <li> Résultat : {{game.gagnant || "Egalité"}} </li>
+            <div *ngIf = "game.ended; else elseBlock"> 
+                <li> Résultat : {{game.winner || "Egalité"}} </li>
             </div>
             <ng-template #elseBlock> 
                 <li> Partie en cours </li>

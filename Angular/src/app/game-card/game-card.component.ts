@@ -12,7 +12,7 @@ export class GameCardComponent implements OnInit {
     ngOnInit(): void { }
 
     goToCard() {
-        if (this.game.hasEnded) {
+        if (this.game.ended) {
             this.router.navigate(['/game/', this.game.id]);
         } else {
             this.router.navigate(['/play/', this.game.id]);
