@@ -66,3 +66,4 @@ secrets.yml
 .sts4-cache
 .prefs
 tags
+tags.*
