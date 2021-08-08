@@ -2,7 +2,7 @@ package com.example.demo.Controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.example.demo.model.Profil;
+import com.example.demo.model.Profile;
 import com.example.demo.model.User;
 import com.example.demo.model.UserRepository;
 import com.example.demo.model.UserService;
@@ -27,13 +27,13 @@ public class UserController {
     }
 
     @GetMapping("/user/{username}")
-    public Profil user(HttpServletRequest request, @PathVariable String username) {
+    public Profile user(HttpServletRequest request, @PathVariable String username) {
         User askingUser = userService.getUserLoginFromRequest(request);
 
         // Si l'utilisateur connecté veut regarder son propre profil
         if (username.equals(askingUser.getUsername()) && userService.isValidLogin(askingUser)) {
             // On obtiendra plus d'informations en regardant son propre profil
-            return new Profil("Self");
+            return new Profile("Self");
         } 
 
         User askedUser = userRepository.findByUsername(username);
@@ -42,7 +42,7 @@ public class UserController {
             return null;
         }
 
-        return new Profil(username);
+        return new Profile(username);
     }
 
     /**

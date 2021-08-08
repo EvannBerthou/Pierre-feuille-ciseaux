@@ -3,10 +3,10 @@ package com.example.demo.model;
 import lombok.Getter;
 
 @Getter
-public class Profil {
+public class Profile {
     private String username;
 
-    public Profil(String _username) {
+    public Profile(String _username) {
         this.username = _username;
     }
 }
