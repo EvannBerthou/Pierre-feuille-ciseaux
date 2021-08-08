@@ -27,8 +27,8 @@ export class GameDetailsComponent implements OnInit {
                 if (this.data.winner == null) {
                     this.classesHeaders = ["draw", "draw"];
                 } else {
-                    this.classesHeaders[0] = this.data.player1.player === this.data.winner ? "winner" : "looser";
-                    this.classesHeaders[1] = this.data.player2.player === this.data.winner ? "winner" : "looser";
+                    this.classesHeaders[0] = this.data.tour1.player === this.data.winner ? "winner" : "looser";
+                    this.classesHeaders[1] = this.data.tour2.player === this.data.winner ? "winner" : "looser";
                 }
             }
         });

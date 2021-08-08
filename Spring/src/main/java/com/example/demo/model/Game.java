@@ -20,8 +20,8 @@ import lombok.Getter;
 @Getter
 public class Game {
     @Id @GeneratedValue(strategy=GenerationType.AUTO) private Long id;
-    @OneToOne(cascade = CascadeType.ALL) private Tour player1;
-    @OneToOne(cascade = CascadeType.ALL) private Tour player2;
+    @OneToOne(cascade = CascadeType.ALL) private Tour tour1;
+    @OneToOne(cascade = CascadeType.ALL) private Tour tour2;
     private Long winner;
     private boolean isEnded;
     @CreationTimestamp private Date creationDate;
@@ -32,34 +32,34 @@ public class Game {
         this.id = _id;
     }
 
-    public Game(Long _id, Tour _player1, Tour _player2) {
+    public Game(Long _id, Tour _tour1, Tour _tour2) {
         this.id = _id;
-        this.player1 = _player1;
-        this.player2 = _player2;
+        this.tour1 = _tour1;
+        this.tour2 = _tour2;
     }
 
-    public void setPlayer1(Long player, char play) {
+    public void setTour1(Long player, char play) {
         Tour tour = new Tour(player, play);
-        this.player1 = tour;
+        this.tour1 = tour;
     }
 
-    public void setPlayer2(Long player, char play) {
+    public void setTour2(Long player, char play) {
         Tour tour = new Tour(player, play);
-        this.player2 = tour;
+        this.tour2 = tour;
     }
 
     public void addTour(Long player, char play) {
-        if (getPlayer1() == null) {
-            setPlayer1(player, play);
+        if (getTour1() == null) {
+            setTour1(player, play);
             // Si c'est le premier tour, alors on ne détermine pas le gagnant
             return;
         }
-        else if (getPlayer2() == null) {
+        else if (getTour2() == null) {
             // Si le même joueur joue les deux coups d'une même partie
-            if (getPlayer1().getPlayer() == player) {
+            if (getTour1().getPlayer() == player) {
                 throw new SamePlayerException(player);
             }
-            setPlayer2(player, play);
+            setTour2(player, play);
         } else {
             throw new GameEndedException(this.getId());
         }
@@ -68,8 +68,8 @@ public class Game {
     }
 
     private void setGagnant() {
-        char c1 = getPlayer1().getCoup();
-        char c2 = getPlayer2().getCoup();
+        char c1 = getTour1().getCoup();
+        char c2 = getTour2().getCoup();
 
         // Egalité
         if (c1 == c2) { 
@@ -77,17 +77,17 @@ public class Game {
         }
         // Si le joueur1 a fait un coup gagnant contre le joueur2 alors il gagne
         else if ((c1 == 'p' && c2 == 'c') || (c1 == 'f' && c2 == 'p') || (c1 == 'c' && c2 == 'f')) {
-            this.winner = getPlayer1().getPlayer();
+            this.winner = getTour1().getPlayer();
         }
         // Sinon le joueur 2 gagne.
         else {
-            this.winner = getPlayer2().getPlayer();
+            this.winner = getTour2().getPlayer();
         }
         this.isEnded = true;
     }
 
     public void clearTours() {
-        this.player1 = null;
-        this.player2 = null;
+        this.tour1 = null;
+        this.tour2 = null;
     }
 }
