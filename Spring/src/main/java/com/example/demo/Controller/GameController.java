@@ -55,8 +55,10 @@ public class GameController {
      *
      * @throws InvalidPlayException Dans le cas où play n'est pas valide (différent de p,f et c)
      */
-    @PostMapping("/game/{id}/{player}/{play}")
-    Game play(@PathVariable Long id, @PathVariable Long player, @PathVariable char play) {
+    @PostMapping("/game/{id}/{play}")
+    Game play(@PathVariable Long id, @PathVariable char play) {
+        Long playerId = 0L;
+
         if (play != 'p' && play != 'f' && play != 'c') {
             log.info("Game : " + id.toString() + " play invalide : " + play);
             throw new InvalidPlayException(play);
@@ -68,7 +70,7 @@ public class GameController {
         }
 
         Game game = optGame.get();
-        game.addTour(player, play);
+        game.addTour(playerId, play);
         game = gameRepository.save(game);
         return game;
     }

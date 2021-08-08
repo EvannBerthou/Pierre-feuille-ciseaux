@@ -27,8 +27,7 @@ export class GamePlayComponent implements OnInit {
 
     play(play: string): void {
         //TODO: Moyen temporaire de simuler différent joueur
-        const playerid = Math.floor(Math.random() * 100);
-        const path = `http://localhost:8080/game/${this.gameid}/${playerid}/${play}`;
+        const path = `http://localhost:8080/game/${this.gameid}/${play}`;
         this.http.post<any>(path, {}).subscribe(
             _ => this.router.navigate(['/game/', this.gameid])
         );
