@@ -8,6 +8,7 @@ import com.example.demo.model.MyUserDetailsService;
 import com.example.demo.model.Profile;
 import com.example.demo.model.User;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -21,8 +22,9 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 public class UserController {
 
+    @Autowired private MyUserDetailsService myUserDetailsService;
     private boolean isValidLogin(String username, String password) {
-        UserDetails details = new MyUserDetailsService().loadUserByUsername(username);
+        UserDetails details = myUserDetailsService.loadUserByUsername(username);
         return details.getUsername().equals(username) && 
             new BCryptPasswordEncoder().matches(password, details.getPassword());
     }
