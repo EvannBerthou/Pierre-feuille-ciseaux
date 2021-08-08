@@ -12,8 +12,7 @@
 
 # Architecture
 
-## Back-end 
-- Spring boot
+## Back-end (Spring boot)
 - Routes (Assumés GET par défaut)
     - Gestion des parties
         - /game (POST)
@@ -33,8 +32,7 @@
             - **Attention** : Cette route peut renvoyer des erreurs dans le cas où <play> ou <gameId> n'est pas valide ainsi que si joueur essaye de jouer contre lui-même.
             - Le joueur est déterminé à l'aide de son Token présent dans l'en-tête de la requête. (Voir [Authentification](#Authentification))
 
-## Front-end
-- Angular
+## Front-end (Angular)
 - Routes:
     - / 
         - Page d'accueil listant les parties disponibles.
