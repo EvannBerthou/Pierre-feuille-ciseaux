@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.example.demo.model.Profil;
 import com.example.demo.model.User;
+import com.example.demo.model.UserRepository;
 import com.example.demo.model.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,25 +19,30 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 public class UserController {
     @Autowired private UserService userService;
+    @Autowired private UserRepository userRepository;
 
     @PostMapping("/login")
     public boolean login(@RequestBody User user) {
         return userService.isValidLogin(user);
     }
 
-    //TODO: Vérifier qu'un authToken est présent dans la requête
     @GetMapping("/user/{username}")
     public Profil user(HttpServletRequest request, @PathVariable String username) {
-        User user = userService.getUserLoginFromRequest(request);
-        Profil profil = new Profil(username);
+        User askingUser = userService.getUserLoginFromRequest(request);
 
         // Si l'utilisateur connecté veut regarder son propre profil
-        if (username.equals(user.getUsername()) && userService.isValidLogin(user)) {
+        if (username.equals(askingUser.getUsername()) && userService.isValidLogin(askingUser)) {
             // On obtiendra plus d'informations en regardant son propre profil
-            return profil;
+            return new Profil("Self");
         } 
 
-        return profil;
+        User askedUser = userRepository.findByUsername(username);
+        if (askedUser == null) {
+            //TODO: Renvoyer une erreur
+            return null;
+        }
+
+        return new Profil(username);
     }
 
     /**
