@@ -1,6 +1,4 @@
-Idée du projet : 
-
-Site de duel de pierre-feuille-ciseaux
+#Site de duel de pierre-feuille-ciseaux
 
 Utilisation du site : 
     - Page d'accueil avec une liste de toutes les personnes en attente d'un adversaire
@@ -12,14 +10,21 @@ Utilisation du site :
         - Nombre de victoires / défaites
         - Elo ? 
 
-Back-end : 
+##Back-end : 
     - Spring boot
+    - Routes:
+        - 
 
-Front end :
+##Front-end :
     - Angular
+    - Routes:
+        - / : Page d'accueil
+        - /profil/<username> : Afficher le profil de l'utilisateur <username>
 
-# TODO
-- Faire le front-end
-- Connexion entre le back-end et le front-end
-- Gestion des utilisateurs
-    - Filtre des joueurs par classement
+#A faire
+- [ ] Préparer le design du site
+- [ ] Profil d'un utilisateur
+- [ ] Système de classement
+- [ ] Filtre des parties
+- [ ] Recherche de profil
+- [ ] Demande en duel (?)
