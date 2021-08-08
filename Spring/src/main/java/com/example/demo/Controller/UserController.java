@@ -5,6 +5,7 @@ import java.util.Base64;
 import javax.servlet.http.HttpServletRequest;
 
 import com.example.demo.model.MyUserDetailsService;
+import com.example.demo.model.Profile;
 import com.example.demo.model.User;
 
 import org.springframework.security.core.userdetails.UserDetails;
@@ -33,7 +34,7 @@ public class UserController {
 
     //TODO: Vérifier qu'un authToken est présent dans la requête
     @GetMapping("/user/{username}")
-    public User user(HttpServletRequest request, @PathVariable String username) {
+    public Profile user(HttpServletRequest request, @PathVariable String username) {
 		String authToken = request.getHeader("Authorization").substring("Basic".length()).trim();
 		String[] parts = new String(Base64.getDecoder().decode(authToken)).split(":");
         String tokenUsername = parts[0];
@@ -41,9 +42,9 @@ public class UserController {
 
         // Si l'utilisateur connecté veut regarder son propre profil
         if (username.equals(tokenUsername) && isValidLogin(username, tokenPassword)) {
-            return new User("Self", "Profile");
+            return new Profile(username);
         } 
 
-        return new User("Other", "Profile");
+        return new Profile(username);
     }
 }
