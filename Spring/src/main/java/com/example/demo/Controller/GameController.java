@@ -79,8 +79,8 @@ public class GameController {
     @GetMapping("/game")
     public @ResponseBody Iterable<Game> getAllGames(@RequestParam(required = false) String filter) {
         if (filter == null)                return hideToursOnPlayingGames(gameRepository.findAll());
-        if (filter.equals("ended"))        return gameRepository.findByHasEnded(true);
-        else if (filter.equals("playing")) return gameRepository.findByHasEnded(false);
+        if (filter.equals("ended"))        return gameRepository.findByIsEnded(true);
+        else if (filter.equals("playing")) return gameRepository.findByIsEnded(false);
         else if (filter.equals("sort"))    return gameRepository.findByOrderByCreationDateAsc();
         return hideToursOnPlayingGames(gameRepository.findAll());
     }
@@ -91,7 +91,7 @@ public class GameController {
      */
     private Iterable<Game> hideToursOnPlayingGames(Iterable<Game> games) {
         for (Game game : games) {
-            if (!game.getHasEnded()) {
+            if (!game.isEnded()) {
                 game.clearTours();
             }
         }

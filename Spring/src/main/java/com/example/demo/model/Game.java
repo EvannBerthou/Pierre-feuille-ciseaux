@@ -14,13 +14,16 @@ import com.example.demo.exception.SamePlayerException;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import lombok.Getter;
+
 @Entity
+@Getter
 public class Game {
     @Id @GeneratedValue(strategy=GenerationType.AUTO) private Long id;
     @OneToOne(cascade = CascadeType.ALL) private Tour player1;
     @OneToOne(cascade = CascadeType.ALL) private Tour player2;
     private Long winner;
-    private boolean hasEnded = false;
+    private boolean isEnded;
     @CreationTimestamp private Date creationDate;
 
     public Game() {}
@@ -34,13 +37,6 @@ public class Game {
         this.player1 = _player1;
         this.player2 = _player2;
     }
-
-    public Long getId() { return this.id; }
-    public Tour getPlayer1() { return this.player1; }
-    public Tour getPlayer2() { return this.player2; }
-    public Long getGagnant() { return this.winner; }
-    public boolean getHasEnded() { return this.hasEnded; }
-    public Date getCreationDate() { return this.creationDate; }
 
     public void setPlayer1(Long player, char play) {
         Tour tour = new Tour(player, play);
@@ -87,7 +83,7 @@ public class Game {
         else {
             this.winner = getPlayer2().getPlayer();
         }
-        this.hasEnded = true;
+        this.isEnded = true;
     }
 
     public void clearTours() {

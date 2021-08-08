@@ -5,7 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.Getter;
+
 @Entity
+@Getter
 public class Tour {
     /** 
      * L'id unique du tour
@@ -27,8 +30,4 @@ public class Tour {
         this.player = _player;
         this.coup = _coup;
     }
-
-    public Long getId() { return this.id; }
-    public Long getPlayer() { return this.player; }
-    public char getCoup() { return this.coup; }
 }
