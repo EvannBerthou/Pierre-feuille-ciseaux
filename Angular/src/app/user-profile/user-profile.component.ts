@@ -8,7 +8,7 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit {
-
+    data: any;
     constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) { }
 
     ngOnInit(): void {
@@ -16,6 +16,7 @@ export class UserProfileComponent implements OnInit {
         const url: string = `http://localhost:8080/user/${username}`;
         this.http.get(url).subscribe(
             (response) => {
+                this.data = response;
                 console.log(response);
             },
             (error) => {
@@ -23,4 +24,9 @@ export class UserProfileComponent implements OnInit {
             }
         );
     }
+
+    get username()  { return this.data?.username;  }
+    get totalGame() { return this.data?.totalGame; }
+    get winCount()  { return this.data?.winCount;  }
+    get loseCount() { return this.data?.loseCount; }
 }
