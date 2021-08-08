@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
     constructor(public auth: AuthenticationService) { }
 
     ngOnInit(): void {
+        //this.auth.authicationService('admin', 'admin')
         this.auth.authicationService('user', 'pass')
     }
 }

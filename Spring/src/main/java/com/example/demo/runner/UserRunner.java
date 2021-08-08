@@ -20,8 +20,9 @@ public class UserRunner implements CommandLineRunner {
 
     @Override 
     public void run(String...args) throws Exception {
-        userRepository.deleteAll();
-        addUser("admin", "admin");
-        addUser("user", "pass");
+        if (userRepository.count() == 0) {
+            addUser("admin", "admin");
+            addUser("user", "pass");
+        }
     }
 }

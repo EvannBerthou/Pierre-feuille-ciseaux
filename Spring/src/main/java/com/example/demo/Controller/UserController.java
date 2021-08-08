@@ -2,6 +2,7 @@ package com.example.demo.Controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.example.demo.model.GameRepository;
 import com.example.demo.model.Profile;
 import com.example.demo.model.User;
 import com.example.demo.model.UserRepository;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     @Autowired private UserService userService;
     @Autowired private UserRepository userRepository;
+    @Autowired private GameRepository gameRepository;
 
     @PostMapping("/login")
     public boolean login(@RequestBody User user) {
@@ -42,7 +44,10 @@ public class UserController {
             return null;
         }
 
-        return new Profile(username);
+        int totalGame = gameRepository.countTotalGame(username);
+        int winCount = gameRepository.countUserWin(username);
+        int loseCount = gameRepository.countUserLose(username);
+        return new Profile(username, totalGame, winCount, loseCount);
     }
 
     /**
