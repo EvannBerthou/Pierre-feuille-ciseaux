@@ -40,8 +40,8 @@ export class GameDetailsComponent implements OnInit {
         return player === this.gameData.winner ? "winner" : "loser"
     }
 
-    get username1() { return this.playerData[0]?.username; }
-    get username2() { return this.playerData[1]?.username; }
+    get username1()  { return this.playerData[0]?.username; }
+    get username2()  { return this.playerData[1]?.username; }
     get classUser1() { return this.headerClass(this.gameData.tour1.player); }
     get classUser2() { return this.headerClass(this.gameData.tour2.player); }
 }

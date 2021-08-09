@@ -4,8 +4,8 @@
 
         <table id="card">
             <tr>
-                <th [ngClass] = "classUser1"> {{username1}} </th>
-                <th [ngClass] = "classUser2"> {{username2}} </th>
+                <th [ngClass] = "classUser1"> <a [routerLink]="['/profile/', username1]">{{username1}}</a></th>
+                <th [ngClass] = "classUser2"> <a [routerLink]="['/profile/', username2]">{{username2}}</a></th>
             </tr>
             <tr>
                 <td> <app-game-details-move [move] = 'gameData.tour1'> </app-game-details-move> </td>

@@ -23,3 +23,9 @@
 .draw {
     color: blue;
 }
+
+a, a:visited {
+    color: inherit;
+    text-decoration: underline;
+}
+
