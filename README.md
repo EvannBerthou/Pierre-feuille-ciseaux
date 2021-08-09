@@ -54,13 +54,15 @@ Ce n'est évidemment pas la façon la plus sécurisée mais cela permet d'avoir 
 
 # A faire
 - [ ] Préparer le design du site
-- [o] Profil d'un utilisateur
-    - [o] Nombre de parties, victoires et défaite
-        - [X] Calculer les données
-        - [ ] L'afficher sous forme de graphique
+- [ ] Profil d'un utilisateur
+    - [X] Calculer les données
+        - [X] Nombre de parties, victoires et défaite
+    - [ ] L'afficher sous forme de graphique
 - [ ] Système de classement
 - [ ] Filtre des parties
 - [ ] Recherche de profil
 - [ ] Demande en duel (?)
 - [ ] Compléter la Doc
 - [ ] Faire un DOC de l'api sur la route /api/
+- [X] Page d'authentification
+- [ ] Persistance de l'authentification

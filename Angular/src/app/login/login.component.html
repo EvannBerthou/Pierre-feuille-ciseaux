@@ -1,0 +1,24 @@
+<div class="login">
+    <h2 class="login-header"> Connexion </h2>
+    <form [formGroup]="loginForm" class="login-container" (ngSubmit)="seConnecter()">
+        <p [ngClass]="{ 'has-error': isSubmitted && formControls.username.errors }">
+        <input type="username" placeholder="Nom d'utilisateur" formControlName="username">
+        </p>
+
+        <div *ngIf="isSubmitted && formControls.username.errors" class="help-block">
+            <div *ngIf="formControls.username.errors.required"><font color="red">L'username est requis</font></div>
+        </div>
+
+        <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+        <input type="password" placeholder="Mot de passe" formControlName="password">
+        </p>
+
+        <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+            <div *ngIf="formControls.password.errors.required"><font color="red">Mot de passe requis</font></div>
+        </div>
+
+        <p>
+        <input type="submit" value="Se connecter">
+        </p>
+    </form>
+</div>
