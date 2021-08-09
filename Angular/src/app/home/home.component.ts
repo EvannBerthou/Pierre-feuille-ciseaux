@@ -12,8 +12,8 @@ export class HomeComponent {
     constructor(private http: HttpClient, private router: Router, public auth: AuthenticationService) { }
 
     newGame(): void {
-        this.http.post<any>('http://localhost:8080/game/', {}).subscribe((response) => {
-            this.router.navigate(['/play/', response['id']]);
-        });
+        this.http.post<any>('http://localhost:8080/game/', {}).subscribe(
+            response => this.router.navigate(['/play/', response['id']])
+        );
     }
 }

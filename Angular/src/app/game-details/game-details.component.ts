@@ -15,7 +15,7 @@ export class GameDetailsComponent implements OnInit {
 
     constructor(private activatedRoute: ActivatedRoute, private http: HttpClient) { }
 
-    ngOnInit(): void { 
+    ngOnInit(): void {
         let paramId = this.activatedRoute.snapshot.params.gameid
         if (paramId === null) { return; }
 

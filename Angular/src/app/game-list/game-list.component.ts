@@ -12,13 +12,8 @@ export class GameListComponent implements OnInit {
 
     ngOnInit() {
         this.http.get<any>('http://localhost:8080/game').subscribe(
-            (response) => {
-                this.data = response;
-                console.log(this.data);
-            },
-            (error) => {
-                console.error("Error" + error);
-            }
+            response => this.data = response,
+            error => console.error("Error" + error)
         );
     }
 }

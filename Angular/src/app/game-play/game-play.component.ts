@@ -16,19 +16,23 @@ export class GamePlayComponent implements OnInit {
     ngOnInit(): void {
         let paramId = this.activatedRoute.snapshot.params.gameid
         if (paramId === null) { return; }
+
         this.gameid = paramId;
-        this.http.get<any>('http://localhost:8080/game/' + this.gameid).subscribe((response) => {
-            this.data = response;
-            if (this.data.ended) {
-                this.router.navigate(['/game/', this.gameid]); 
+
+        const url = `http://localhost:8080/game/${this.gameid}`;
+        this.http.get<any>(url).subscribe(
+            response => {
+                this.data = response;
+                if (this.data.ended) {
+                    this.router.navigate(['/game/', this.gameid]);
+                }
             }
-        });
+        );
     }
 
     play(play: string): void {
-        //TODO: Moyen temporaire de simuler différent joueur
-        const path = `http://localhost:8080/game/${this.gameid}/${play}`;
-        this.http.post<any>(path, {}).subscribe(
+        const url = `http://localhost:8080/game/${this.gameid}/${play}`;
+        this.http.post<any>(url, {}).subscribe(
             _ => this.router.navigate(['/game/', this.gameid])
         );
     }

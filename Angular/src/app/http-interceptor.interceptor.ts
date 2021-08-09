@@ -15,14 +15,14 @@ export class HttpInterceptorInterceptor implements HttpInterceptor {
     constructor(private authicationService: AuthenticationService) {}
 
     intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-        if (this.authicationService.username === "") { return next.handle(request); }
+        if (!this.authicationService.isAuthenticated) { return next.handle(request); }
+
         const clone = request.clone({
             headers: new HttpHeaders({
                 'Content-Type': 'application/json',
                 'Authorization': this.authicationService.getAuth()
             })
         });
-        console.log(clone);
         return next.handle(clone);
     }
 }

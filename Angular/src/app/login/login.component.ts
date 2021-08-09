@@ -16,12 +16,10 @@ export class LoginComponent implements OnInit {
 
     ngOnInit(): void {
         this.loginForm = this.formBuilder.group({
+            valid:    [''],
             username: ['', Validators.required],
             password: ['', Validators.required],
-            valid:    ['']
         });
-
-        //this.auth.authicationService('admin', 'admin')
     }
 
     get formControls() { return this.loginForm.controls; }
@@ -34,11 +32,12 @@ export class LoginComponent implements OnInit {
 
         const username: String = this.loginForm.value.username;
         const password: String = this.loginForm.value.password;
-        this.auth.login(username, password).subscribe(_ => {
-            this.auth.setCredentials(username, password);
-            this.router.navigate(['/']);
-        }, _ => {
-            this.formControls.valid.setErrors({});
-        });
+        this.auth.login(username, password).subscribe(
+            _ => {
+                this.auth.setCredentials(username, password);
+                this.router.navigate(['/']);
+            },
+            _ => this.formControls.valid.setErrors({})
+        );
     }
 }
