@@ -1,5 +1,7 @@
 package com.example.demo.Controller;
 
+import java.util.Optional;
+
 import javax.servlet.http.HttpServletRequest;
 
 import com.example.demo.model.GameRepository;
@@ -43,6 +45,22 @@ public class UserController {
             //TODO: Renvoyer une erreur
             return null;
         }
+
+        int totalGame = gameRepository.countTotalGame(username);
+        int winCount = gameRepository.countUserWin(username);
+        int loseCount = gameRepository.countUserLose(username);
+        return new Profile(username, totalGame, winCount, loseCount);
+    }
+
+    @GetMapping("/user/id/{userId:[\\d]+}")
+    public Profile user(HttpServletRequest request, @PathVariable Long userId) {
+        Optional<User> user = userRepository.findById(userId);
+        //TODO: Renvoyer une erreur
+        if (user.isEmpty()) { 
+            return null;
+        }
+
+        String username = user.get().getUsername();
 
         int totalGame = gameRepository.countTotalGame(username);
         int winCount = gameRepository.countUserWin(username);
