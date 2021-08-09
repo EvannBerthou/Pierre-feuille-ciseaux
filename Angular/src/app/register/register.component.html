@@ -1,0 +1,24 @@
+<div class="register">
+    <h2 class="register-header"> Créer un compte </h2>
+    <form [formGroup]="registerForm" class="login-container" (ngSubmit)="senrengistrer()">
+        <p [ngClass]="{ 'has-error': isSubmitted && formControls.username.errors }">
+        <input type="username" placeholder="Nom d'utilisateur" formControlName="username">
+        </p>
+
+        <div *ngIf="isSubmitted && formControls.username.errors" class="help-block">
+            <div *ngIf="formControls.username.errors.required"><font color="red">L'username est requis</font></div>
+        </div>
+
+        <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+        <input type="password" placeholder="Mot de passe" formControlName="password">
+        </p>
+
+        <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+            <div *ngIf="formControls.password.errors.required"><font color="red">Mot de passe requis</font></div>
+        </div>
+
+        <p>
+        <input type="submit" value="S'enrengistrer">
+        </p>
+    </form>
+</div>

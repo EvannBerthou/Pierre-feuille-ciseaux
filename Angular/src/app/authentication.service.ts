@@ -10,7 +10,7 @@ export class AuthenticationService {
 
     constructor(private http: HttpClient, private router: Router) { }
 
-    authicationService(user: String, pass: String) {
+    login(user: String, pass: String) {
         return this.http.post('http://localhost:8080/login', {
             username: user,
             password: pass
@@ -21,6 +21,17 @@ export class AuthenticationService {
             }
             this.router.navigate(['/']);
             this.isAuthenticated = Boolean(response);
+        })
+    }
+
+    register(username: String, password: String) {
+        this.http.post('http://localhost:8080/register', {
+            username: username,
+            password: password
+        }).subscribe(response => {
+            if (response === true) {
+                this.login(username, password);
+            }
         })
     }
 

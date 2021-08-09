@@ -28,6 +28,6 @@ export class LoginComponent implements OnInit {
         this.isSubmitted = true;
         if (this.loginForm.invalid) return;
 
-        this.auth.authicationService(this.loginForm.value.username, this.loginForm.value.password);
+        this.auth.login(this.loginForm.value.username, this.loginForm.value.password);
     }
 }

@@ -16,6 +16,7 @@ import {AuthenticationService} from './authentication.service';
 import { LoginComponent } from './login/login.component';
 import {AuthGuardService} from './auth-guard.service';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     GamePlayComponent,
     LoginComponent,
     UserProfileComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
