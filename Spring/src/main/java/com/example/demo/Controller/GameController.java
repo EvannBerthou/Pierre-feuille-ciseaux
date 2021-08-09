@@ -108,6 +108,7 @@ public class GameController {
         return games;
     }
 
+    //TODO: Ajouter une limite de parties retournées ?
     @GetMapping("/games/{username}")
     public Iterable<Game> getGamesPlayedBy(@PathVariable String username) {
         List<Game> games = gameRepository.findAllPlayedBy(username);

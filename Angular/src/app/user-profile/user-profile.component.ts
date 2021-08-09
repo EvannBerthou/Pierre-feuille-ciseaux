@@ -9,18 +9,27 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class UserProfileComponent implements OnInit {
     data: any;
+    playedGames: any;
+
     constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) { }
 
     ngOnInit(): void {
         const username = this.activatedRoute.snapshot.params.username;
-        const url: string = `http://localhost:8080/user/${username}`;
-        this.http.get(url).subscribe(
+        const urlStats: string = `http://localhost:8080/user/${username}`;
+        this.http.get(urlStats).subscribe(
             (response) => {
                 this.data = response;
                 console.log(response);
             },
             (error) => {
                 console.error("Error" + error);
+            }
+        );
+
+        const urlGames: string = `http://localhost:8080/games/${username}`;
+        this.http.get(urlGames).subscribe(
+            (response) => {
+                this.playedGames = response;
             }
         );
     }

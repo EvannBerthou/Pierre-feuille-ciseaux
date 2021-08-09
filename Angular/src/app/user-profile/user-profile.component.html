@@ -14,3 +14,9 @@
         <td> {{loseCount}} </td>
     </tr>
 </table>
+
+<h2> Parties joués </h2>
+
+<ul *ngFor = "let game of playedGames">
+    <app-game-card [game]='game'> </app-game-card>
+</ul>
