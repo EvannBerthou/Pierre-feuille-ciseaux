@@ -1,6 +1,5 @@
 import {HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {Router} from '@angular/router';
 
 @Injectable()
 export class AuthenticationService {
@@ -8,20 +7,18 @@ export class AuthenticationService {
     public password: String = "";
     public isAuthenticated: boolean = false;
 
-    constructor(private http: HttpClient, private router: Router) { }
+    constructor(private http: HttpClient) { }
+
+    setCredentials(u: String, p: String) {
+        this.username = u;
+        this.password = p;
+    }
 
     login(user: String, pass: String) {
         return this.http.post('http://localhost:8080/login', {
             username: user,
             password: pass
-        }).subscribe(response => {
-            if (response === true) {
-                this.username = user;
-                this.password = pass;
-            }
-            this.router.navigate(['/']);
-            this.isAuthenticated = Boolean(response);
-        })
+        });
     }
 
     register(username: String, password: String) {
@@ -30,7 +27,7 @@ export class AuthenticationService {
             password: password
         }).subscribe(response => {
             if (response === true) {
-                this.login(username, password);
+                this.setCredentials(username, password);
             }
         })
     }

@@ -1,6 +1,10 @@
 <div class="login">
     <h2 class="login-header"> Connexion </h2>
     <form [formGroup]="loginForm" class="login-container" (ngSubmit)="seConnecter()">
+        <div *ngIf="isSubmitted && formControls.valid.errors" class="help-block">
+            <div *ngIf="formControls.valid.errors"><font color="red">Identifiants non valides</font></div>
+        </div>
+        
         <p [ngClass]="{ 'has-error': isSubmitted && formControls.username.errors }">
         <input type="username" placeholder="Nom d'utilisateur" formControlName="username">
         </p>

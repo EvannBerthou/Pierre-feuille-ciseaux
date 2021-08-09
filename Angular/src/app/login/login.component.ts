@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 import {AuthenticationService} from '../authentication.service';
 
 @Component({
@@ -11,12 +12,13 @@ export class LoginComponent implements OnInit {
     loginForm!: FormGroup;
     isSubmitted = false;
 
-    constructor(public auth: AuthenticationService, private formBuilder: FormBuilder) { }
+    constructor(public auth: AuthenticationService, private formBuilder: FormBuilder, private router: Router) { }
 
     ngOnInit(): void {
         this.loginForm = this.formBuilder.group({
             username: ['', Validators.required],
-            password: ['', Validators.required]
+            password: ['', Validators.required],
+            valid:    ['']
         });
 
         //this.auth.authicationService('admin', 'admin')
@@ -26,8 +28,17 @@ export class LoginComponent implements OnInit {
 
     seConnecter() {
         this.isSubmitted = true;
+        this.formControls.valid.setErrors(null);
         if (this.loginForm.invalid) return;
 
-        this.auth.login(this.loginForm.value.username, this.loginForm.value.password);
+
+        const username: String = this.loginForm.value.username;
+        const password: String = this.loginForm.value.password;
+        this.auth.login(username, password).subscribe(_ => {
+            this.auth.setCredentials(username, password);
+            this.router.navigate(['/']);
+        }, _ => {
+            this.formControls.valid.setErrors({});
+        });
     }
 }
