@@ -1,5 +1,7 @@
+import {HttpClient} from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {Profile} from '../profile';
 
 @Component({
   selector: 'app-game-card',
@@ -8,14 +10,18 @@ import {Router} from '@angular/router';
 })
 export class GameCardComponent implements OnInit {
     @Input() game : any;
-    constructor(private router: Router) { }
-    ngOnInit(): void { }
+    winner: String = "";
+
+    constructor(private http: HttpClient, private router: Router) { }
+    ngOnInit(): void {
+        if (this.game.winner === null) return;
+
+        const url = `http://localhost:8080/user/id/${this.game.winner}`;
+        this.http.get<Profile>(url).subscribe(response => this.winner = response.username);
+    }
 
     goToCard() {
-        if (this.game.ended) {
-            this.router.navigate(['/game/', this.game.id]);
-        } else {
-            this.router.navigate(['/play/', this.game.id]);
-        }
+        const path = this.game.ended ? '/game/' : '/play/';
+        this.router.navigate([path, this.game.id]);
     }
 }

@@ -66,3 +66,4 @@ Ce n'est évidemment pas la façon la plus sécurisée mais cela permet d'avoir 
 - [ ] Faire un DOC de l'api sur la route /api/
 - [X] Page d'authentification
 - [ ] Persistance de l'authentification
+- [ ] Vérifier que la partie ne s'est pas terminée le temps de choisir son coup

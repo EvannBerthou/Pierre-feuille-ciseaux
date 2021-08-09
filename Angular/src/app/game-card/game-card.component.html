@@ -1,12 +1,20 @@
 <li>
-
     <div (click)="goToCard()">
         Id : {{game.id}}
         <ul>
-            <div *ngIf = "game.ended; else elseBlock"> 
-                <li> Résultat : {{game.winner || "Egalité"}} </li>
+            <div *ngIf = "game.ended; else elseBlock">
+                <li> Résultat :
+                    <span *ngIf = "game.winner === null; else elseWinner">
+                        Egalité
+                    </span>
+                    <ng-template #elseWinner>
+                        <a [routerLink]="['/profile/', winner]">
+                            <span (click)="$event.stopPropagation()"> {{winner}} </span>
+                        </a>
+                    </ng-template>
+                </li>
             </div>
-            <ng-template #elseBlock> 
+            <ng-template #elseBlock>
                 <li> Partie en cours </li>
             </ng-template>
         </ul>
