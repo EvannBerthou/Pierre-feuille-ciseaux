@@ -11,6 +11,7 @@ import com.example.demo.model.UserRepository;
 import com.example.demo.model.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,6 +29,18 @@ public class UserController {
     @PostMapping("/login")
     public boolean login(@RequestBody User user) {
         return userService.isValidLogin(user);
+    }
+
+    @PostMapping("/register")
+    public boolean register(@RequestBody User form) {
+        // Si un utilisateur avec ce nom existe déjà
+        if (userRepository.findByUsername(form.getUsername()) != null) return false;
+
+        String encodedPassword = new BCryptPasswordEncoder().encode(form.getPassword());
+        User newUser = new User(form.getUsername(), encodedPassword);
+        userRepository.save(newUser);
+        return true;
+
     }
 
     @GetMapping("/user/{username}")
