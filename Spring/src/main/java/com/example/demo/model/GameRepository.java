@@ -22,4 +22,10 @@ public interface GameRepository extends CrudRepository<Game, Long> {
 
     @Query(value = "SELECT COUNT(*) FROM tour WHERE player = (SELECT id FROM user WHERE username=:username)", nativeQuery = true)
     Integer countTotalGame(@Param("username") String username);
+
+    @Query(value =
+            "SELECT * FROM game WHERE (SELECT id FROM user WHERE username=:username) IN " +
+            "(SELECT tour.player FROM tour WHERE tour.id IN (game.tour1_id, game.tour2_id))",
+            nativeQuery = true)
+    List<Game> findAllPlayedBy(@Param("username") String username);
 }

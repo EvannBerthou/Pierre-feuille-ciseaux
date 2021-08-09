@@ -5,6 +5,7 @@ import com.example.demo.model.GameRepository;
 import com.example.demo.model.UserService;
 import com.example.demo.exception.InvalidPlayException;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
@@ -105,5 +106,11 @@ public class GameController {
             }
         }
         return games;
+    }
+
+    @GetMapping("/games/{username}")
+    public Iterable<Game> getGamesPlayedBy(@PathVariable String username) {
+        List<Game> games = gameRepository.findAllPlayedBy(username);
+        return hideToursOnPlayingGames(games);
     }
 }
