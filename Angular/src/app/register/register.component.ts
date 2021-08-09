@@ -9,7 +9,7 @@ import {AuthenticationService} from '../authentication.service';
 })
 export class RegisterComponent implements OnInit {
     registerForm!: FormGroup;
-    isSubmitted = false;
+    isSubmitted: Boolean = false;
 
     constructor(public auth: AuthenticationService, private formBuilder: FormBuilder) { }
 

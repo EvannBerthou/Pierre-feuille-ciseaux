@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthenticationService} from '../authentication.service';
+import {Game} from '../game';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ export class HomeComponent {
     constructor(private http: HttpClient, private router: Router, public auth: AuthenticationService) { }
 
     newGame(): void {
-        this.http.post<any>('http://localhost:8080/game/', {}).subscribe(
+        this.http.post<Game>('http://localhost:8080/game/', {}).subscribe(
             response => this.router.navigate(['/play/', response['id']])
         );
     }

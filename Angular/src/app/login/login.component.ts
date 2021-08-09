@@ -10,7 +10,7 @@ import {AuthenticationService} from '../authentication.service';
 })
 export class LoginComponent implements OnInit {
     loginForm!: FormGroup;
-    isSubmitted = false;
+    isSubmitted: Boolean = false;
 
     constructor(public auth: AuthenticationService, private formBuilder: FormBuilder, private router: Router) { }
 
@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
         this.isSubmitted = true;
         this.formControls.valid.setErrors(null);
         if (this.loginForm.invalid) return;
-
 
         const username: String = this.loginForm.value.username;
         const password: String = this.loginForm.value.password;

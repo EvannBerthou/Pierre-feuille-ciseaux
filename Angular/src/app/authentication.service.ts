@@ -12,6 +12,7 @@ export class AuthenticationService {
     setCredentials(u: String, p: String) {
         this.username = u;
         this.password = p;
+        this.isAuthenticated = true;
     }
 
     login(user: String, pass: String) {
