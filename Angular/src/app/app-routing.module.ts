@@ -9,12 +9,12 @@ import {RegisterComponent} from './register/register.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
 
 const routes: Routes = [
-    { path: '', component: HomeComponent, canActivate: [AuthGuardService] },
+    { path: '', component: HomeComponent},
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'game', component: GameDetailsComponent },
     { path: 'game/:gameid', component: GameDetailsComponent },
-    { path: 'play/:gameid', component: GamePlayComponent },
+    { path: 'play/:gameid', component: GamePlayComponent, canActivate: [AuthGuardService] },
     { path: 'profile/:username', component: UserProfileComponent },
 ];
 
