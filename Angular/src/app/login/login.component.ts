@@ -32,9 +32,13 @@ export class LoginComponent implements OnInit {
         const username: String = this.loginForm.value.username;
         const password: String = this.loginForm.value.password;
         this.auth.login(username, password).subscribe(
-            _ => {
-                this.auth.setCredentials(username, password);
-                this.router.navigate(['/']);
+            response => {
+                if (response === true) {
+                    this.auth.setCredentials(username, password);
+                    this.router.navigate(['/']);
+                } else {
+                    this.formControls.valid.setErrors({});
+                }
             },
             _ => this.formControls.valid.setErrors({})
         );

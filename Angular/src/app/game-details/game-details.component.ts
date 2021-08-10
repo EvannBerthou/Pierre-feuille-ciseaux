@@ -28,13 +28,17 @@ export class GameDetailsComponent implements OnInit {
             console.log(response);
 
             this.gameData = response;
-            const player1Url = `http://localhost:8080/user/id/${this.gameData.tour1.player}`;
-            this.http.get<Profile>(player1Url).subscribe(response => this.playerData[0] = response);
 
-            const player2Url = `http://localhost:8080/user/id/${this.gameData.tour2.player}`;
-            this.http.get<Profile>(player2Url).subscribe(response => this.playerData[1] = response);
+            if (this.gameData.tour1 !== null) {
+                const player1Url = `http://localhost:8080/user/id/${this.gameData.tour1.player}`;
+                    this.http.get<Profile>(player1Url).subscribe(response => this.playerData[0] = response);
+            }
+
+            if (this.gameData.tour2 !== null) {
+                const player2Url = `http://localhost:8080/user/id/${this.gameData.tour2.player}`;
+                this.http.get<Profile>(player2Url).subscribe(response => this.playerData[1] = response);
+            }
         });
-
     }
 
     headerClass(player: Number): String {
@@ -44,6 +48,6 @@ export class GameDetailsComponent implements OnInit {
 
     get username1()  : String { return this.playerData[0]?.username; }
     get username2()  : String { return this.playerData[1]?.username; }
-    get classUser1() : String { return this.headerClass(this.gameData.tour1.player); }
-    get classUser2() : String { return this.headerClass(this.gameData.tour2.player); }
+    get classUser1() : String { return this.headerClass(this.gameData.tour1?.player); }
+    get classUser2() : String { return this.headerClass(this.gameData.tour2?.player); }
 }

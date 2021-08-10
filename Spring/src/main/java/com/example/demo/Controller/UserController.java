@@ -48,10 +48,10 @@ public class UserController {
         User askingUser = userService.getUserLoginFromRequest(request);
 
         // Si l'utilisateur connecté veut regarder son propre profil
-        if (username.equals(askingUser.getUsername()) && userService.isValidLogin(askingUser)) {
+        /*if (username.equals(askingUser.getUsername()) && userService.isValidLogin(askingUser)) {
             // On obtiendra plus d'informations en regardant son propre profil
             return new Profile("Self");
-        } 
+        }*/
 
         User askedUser = userRepository.findByUsername(username);
         if (askedUser == null) {
