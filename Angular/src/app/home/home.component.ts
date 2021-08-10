@@ -13,6 +13,11 @@ export class HomeComponent {
     constructor(private http: HttpClient, private router: Router, public auth: AuthenticationService) { }
 
     newGame(): void {
+        if (this.auth.isAuthenticated === false) {
+            this.router.navigate(['/login']);
+            return;
+        }
+
         this.http.post<Game>('http://localhost:8080/game/', {}).subscribe(
             response => this.router.navigate(['/play/', response['id']])
         );

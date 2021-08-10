@@ -67,3 +67,4 @@ Ce n'est évidemment pas la façon la plus sécurisée mais cela permet d'avoir 
 - [X] Page d'authentification
 - [ ] Persistance de l'authentification
 - [ ] Vérifier que la partie ne s'est pas terminée le temps de choisir son coup
+- [ ] Rediriger sur la page demandé après une connexion
