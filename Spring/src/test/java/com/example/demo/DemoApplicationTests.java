@@ -11,7 +11,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class DemoApplicationTests {
-
     @Autowired private GameController gameController;
     @Autowired private UserController userController;
 
@@ -19,6 +18,5 @@ class DemoApplicationTests {
 	void contextLoads() {
         assertThat(gameController).isNotNull();
         assertThat(userController).isNotNull();
-	}
-
+    }
 }
