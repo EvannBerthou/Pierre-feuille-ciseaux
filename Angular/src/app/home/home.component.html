@@ -1,11 +1,13 @@
 <div *ngIf="auth.isAuthenticated">
-    <h1> 
+    <h1>
         Bienvenue <span id="name">{{auth.username}} </span>
     </h1>
 </div>
 
-<button (click)="newGame()">
-    Nouvelle partie
-</button>
+<span *ngIf="auth.isAuthenticated">
+    <button (click)="newGame()">
+        Nouvelle partie
+    </button>
+</span>
 
 <app-game-list></app-game-list>
