@@ -1,14 +1,8 @@
-<div *ngIf="auth.isAuthenticated; else notLoggedIn">
+<div *ngIf="auth.isAuthenticated">
     <h1> 
         Bienvenue <span id="name">{{auth.username}} </span>
     </h1>
 </div>
-<ng-template #notLoggedIn>
-    <div>
-        <button [routerLink]="['/login']"> Se connecter </button>
-        <button [routerLink]="['/register']"> S'enrengistrer </button>
-    </div>
-</ng-template>
 
 <button (click)="newGame()">
     Nouvelle partie

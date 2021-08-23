@@ -1,0 +1,31 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid lightgray;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+#auth-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    a {
+        margin-left: 1rem;
+
+        #login {
+            background-color: red;
+        }
+
+        #register {
+        }
+    }
+}

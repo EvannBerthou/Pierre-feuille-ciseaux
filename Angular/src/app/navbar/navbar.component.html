@@ -1,0 +1,15 @@
+<nav>
+    <a [routerLink]="['/']" class="nav-logo"> PFC </a>
+    <span *ngIf="auth.isAuthenticated else notLoggedIn">
+        <ul id="auth-buttons">
+            <li> <a [routerLink]="['/profile', auth.username]"> Profil </a> </li>
+            <li> <a [routerLink]="['/disconnect']"> Se déconnecter </a> </li>
+        </ul>
+    </span>
+    <ng-template #notLoggedIn>
+        <ul id="auth-buttons">
+            <li> <a id="login" [routerLink]="['/login']"> Se connecter </a> </li>
+            <li> <a id="register" [routerLink]="['/register']"> S'enrengistrer </a> </li>
+        </ul>
+    </ng-template>
+</nav>
