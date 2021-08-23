@@ -1,8 +1,14 @@
-<li>
-    <div (click)="goToCard()">
+<li (click)="goToCard()">
+    <div>
         Id : {{game.id}}
         <ul>
             <div *ngIf = "game.ended; else elseBlock">
+                <table> 
+                    <tr>
+                        <td><app-game-details-move [move]='game.tour2'></app-game-details-move></td>
+                        <td><app-game-details-move [move]='game.tour1'></app-game-details-move></td>
+                    </tr>
+                </table>
                 <li> Résultat :
                     <span *ngIf = "game.winner === null; else elseWinner">
                         Egalité

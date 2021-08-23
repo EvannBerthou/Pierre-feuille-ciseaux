@@ -1,5 +1,5 @@
 import {HttpClient} from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {Profile} from '../profile';
 
@@ -20,6 +20,7 @@ export class GameCardComponent implements OnInit {
         this.http.get<Profile>(url).subscribe(response => this.winner = response.username);
     }
 
+    @HostListener('click', ['$event.target'])
     goToCard() {
         const path = this.game.ended ? '/game/' : '/play/';
         this.router.navigate([path, this.game.id]);
