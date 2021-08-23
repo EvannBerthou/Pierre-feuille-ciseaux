@@ -1,10 +1,17 @@
-<h1>
-    Bienvenue <span id="name">{{auth.username}} </span>
-</h1>
-
+<div *ngIf="auth.isAuthenticated; else notLoggedIn">
+    <h1> 
+        Bienvenue <span id="name">{{auth.username}} </span>
+    </h1>
+</div>
+<ng-template #notLoggedIn>
+    <div>
+        <button [routerLink]="['/login']"> Se connecter </button>
+        <button [routerLink]="['/register']"> S'enrengistrer </button>
+    </div>
+</ng-template>
 
 <button (click)="newGame()">
-    New Game
+    Nouvelle partie
 </button>
 
 <app-game-list></app-game-list>
