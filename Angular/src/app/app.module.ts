@@ -18,6 +18,7 @@ import {AuthGuardService} from './auth-guard.service';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { DisconnectComponent } from './disconnect/disconnect.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     UserProfileComponent,
     RegisterComponent,
     NavbarComponent,
+    DisconnectComponent,
   ],
   imports: [
     BrowserModule,

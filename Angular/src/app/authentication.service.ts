@@ -40,4 +40,10 @@ export class AuthenticationService {
     public getAuth() {
         return this.createAuthToken(this.username, this.password);
     }
+
+    public disconnect() {
+        this.username = "";
+        this.password=  "";
+        this.isAuthenticated = false;
+    }
 }
