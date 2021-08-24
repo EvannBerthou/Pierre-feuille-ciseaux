@@ -47,7 +47,7 @@ export class GameDetailsComponent implements OnInit {
     get username2()  : String { return this.playerData[1]?.username; }
     get classUser1() : String { return this.headerClass(this.gameData.tour1?.player); }
     get classUser2() : String { return this.headerClass(this.gameData.tour2?.player); }
-    get getResult() { 
+    get getResult() {
         if (this.gameData.ended === false) return "En cours";
         if (this.gameData.winner === null) return "Egalité";
 

@@ -1,0 +1,16 @@
+<div class="header">
+    <span class="first"> {{game.id}} </span>
+    <span class="second"> {{getResult}} </span>
+    <span class="third"> {{getStartDate}} </span>
+</div>
+
+<div class="details"> 
+    <div class="first-player"> 
+        <h3> {{username1}} </h3>
+        <h4> elo </h4>
+    </div>
+    <div class="second-player"> 
+        <h3> username </h3>
+        <h4> elo </h4>
+    </div>
+</div>

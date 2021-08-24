@@ -13,7 +13,7 @@
 }
 
 a, a:visited {
-    color: darkblue;
+    color: inherit;
     font-weight: bold;
     text-decoration: underline;
 }
@@ -32,11 +32,6 @@ a, a:visited {
     grid-row: 2;
 }
 
-.third {
-    grid-row: 3;
-}
-
-
 .details {
     display: grid;
     grid-row: 1;
@@ -50,4 +45,16 @@ a, a:visited {
 
 .second-player {
     grid-column: 2;
+}
+
+.winner {
+    color: green;
+}
+
+.loser {
+    color: red;
+}
+
+.draw {
+    color: darkblue;
 }

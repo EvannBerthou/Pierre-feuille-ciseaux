@@ -53,6 +53,7 @@ window.btoa(username + ":" + password);
 Ce n'est évidemment pas la façon la plus sécurisée mais cela permet d'avoir un système d'identification utilisable.
 
 # A faire
+- [ ] Nomenclature constante
 - [ ] Préparer le design du site
 - [ ] Profil d'un utilisateur
     - [X] Calculer les données

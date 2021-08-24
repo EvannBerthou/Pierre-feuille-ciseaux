@@ -2,6 +2,7 @@ import {formatDate} from '@angular/common';
 import {HttpClient} from '@angular/common/http';
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {GameProfilesService} from '../game-profiles.service';
 import {Profile} from '../profile';
 
 @Component({
@@ -12,13 +13,11 @@ import {Profile} from '../profile';
 export class GameCardComponent implements OnInit {
     @Input() game : any;
     winner: String = "";
+    playerData: Profile[] = [];
 
-    constructor(private http: HttpClient, private router: Router) { }
+    constructor(private router: Router, private gameProfiles: GameProfilesService) { }
     ngOnInit(): void {
-        if (this.game.winner === null) return;
-
-        const url = `http://localhost:8080/user/id/${this.game.winner}`;
-        this.http.get<Profile>(url).subscribe(response => this.winner = response.username);
+        this.playerData = this.gameProfiles.getGameProfiles(this.game);
     }
 
     @HostListener('click', ['$event.target'])
@@ -27,8 +26,31 @@ export class GameCardComponent implements OnInit {
         this.router.navigate([path, this.game.id]);
     }
 
+    isWinner(player: Number): boolean {
+        return player === this.game.winner;
+    }
+
+    headerClass(player: Number): String {
+        if (this.game.winner === null) return "draw";
+        return this.isWinner(player) ? "winner" : "loser"
+    }
+
+    get username1()  : String { return this.playerData[0]?.username; }
+    get username2()  : String { return this.playerData[1]?.username; }
+    get classUser1() : String { return this.headerClass(this.game.tour1?.player); }
+    get classUser2() : String { return this.headerClass(this.game.tour2?.player); }
+
     get getResult() {
-        return this.winner ? this.winner : "Egalité";
+        if (this.game.ended === false) return "En cours";
+        if (this.game.winner === null) return "Egalité";
+
+        if (this.game.winner === this.game.tour1.player)
+            return this.playerData[0]?.username;
+
+        if (this.game.winner === this.game.tour2.player)
+            return this.playerData[1]?.username;
+
+        return "?";
     }
 
     get getStartDate() {

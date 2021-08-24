@@ -1,16 +1,15 @@
 <div class="header">
     <span class="first"> {{game.id}} </span>
-    <span class="second"> {{getResult}} </span>
-    <span class="third"> {{getStartDate}} </span>
+    <span class="second"> {{getStartDate}} </span>
 </div>
 
 <div class="details"> 
     <div class="first-player"> 
-        <h3> username </h3>
+        <h3 [ngClass] = "classUser1"> <a [routerLink]="['/profile/', username1]">{{username1}}</a> </h3>
         <h4> elo </h4>
     </div>
     <div class="second-player"> 
-        <h3> username </h3>
+        <h3 [ngClass] = "classUser2"> <a [routerLink]="['/profile/', username2]">{{username2}}</a> </h3>
         <h4> elo </h4>
     </div>
 </div>
