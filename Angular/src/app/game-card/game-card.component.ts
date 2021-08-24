@@ -1,5 +1,4 @@
 import {formatDate} from '@angular/common';
-import {HttpClient} from '@angular/common/http';
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {GameProfilesService} from '../game-profiles.service';

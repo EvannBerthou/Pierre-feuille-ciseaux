@@ -1,11 +1,11 @@
 import {formatDate} from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import {Profile} from '../profile';
 import {Game} from '../game';
 import {AuthenticationService} from '../authentication.service';
 import {GameProfilesService} from '../game-profiles.service';
+import {GameService} from '../game.service';
 
 @Component({
   selector: 'app-game-details',
@@ -17,19 +17,14 @@ export class GameDetailsComponent implements OnInit {
     gameData!: Game;
     playerData: Profile[] = [];
 
-    constructor(private activatedRoute: ActivatedRoute, private http: HttpClient, private auth: AuthenticationService, private gameProfiles: GameProfilesService) { }
+    constructor(private activatedRoute: ActivatedRoute, private gameService: GameService, private auth: AuthenticationService, private gameProfiles: GameProfilesService) { }
 
     ngOnInit(): void {
-        let paramId = this.activatedRoute.snapshot.params.gameid;
-        if (paramId === null) { return; }
+        this.gameid = this.activatedRoute.snapshot.params.gameid;
+        if (this.gameid === null) { return; }
 
-        this.gameid = paramId;
-
-        const gameUrl = `http://localhost:8080/game/${this.gameid}`;
-        this.http.get<Game>(gameUrl).subscribe(response => {
-            if (response === null) return;
+        this.gameService.getById(this.gameid).subscribe(response => {
             this.gameData = response;
-
             this.playerData = this.gameProfiles.getGameProfiles(this.gameData);
         });
     }

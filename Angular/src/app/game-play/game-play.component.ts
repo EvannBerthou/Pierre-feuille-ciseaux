@@ -1,7 +1,6 @@
-import {HttpClient} from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Game} from '../game';
+import {GameService} from '../game.service';
 
 @Component({
     selector: 'app-game-play',
@@ -10,21 +9,17 @@ import {Game} from '../game';
 })
 export class GamePlayComponent implements OnInit {
     gameid!: Number;
-    data!: Game;
 
-    constructor(private activatedRoute: ActivatedRoute, private http: HttpClient, private router: Router) { }
+    constructor(private activatedRoute: ActivatedRoute, private gameService: GameService, private router: Router) { }
 
     ngOnInit(): void {
-        let paramId = this.activatedRoute.snapshot.params.gameid
-        if (paramId === null) { return; }
+        this.gameid = this.activatedRoute.snapshot.params.gameid;
+        if (this.gameid === null) { return; }
 
-        this.gameid = paramId;
-
-        const url = `http://localhost:8080/game/${this.gameid}`;
-        this.http.get<Game>(url).subscribe(
+        this.gameService.getById(this.gameid).subscribe(
             response => {
-                this.data = response;
-                if (this.data.ended) {
+                // Si la partie est terminé, on redirige vers le détail de la partie
+                if (response.ended) {
                     this.router.navigate(['/game/', this.gameid]);
                 }
             }
@@ -32,8 +27,7 @@ export class GamePlayComponent implements OnInit {
     }
 
     play(play: string): void {
-        const url = `http://localhost:8080/game/${this.gameid}/${play}`;
-        this.http.post<Game>(url, {}).subscribe(
+        this.gameService.play(this.gameid, play).subscribe(
             _ => this.router.navigate(['/game/', this.gameid])
         );
     }
