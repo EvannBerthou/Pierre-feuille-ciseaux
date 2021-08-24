@@ -28,7 +28,8 @@ export class GamePlayComponent implements OnInit {
 
     play(play: string): void {
         this.gameService.play(this.gameid, play).subscribe(
-            _ => this.router.navigate(['/game/', this.gameid])
+            _ => this.router.navigate(['/game/', this.gameid]),
+            err => alert(err.error.error)
         );
     }
 }
