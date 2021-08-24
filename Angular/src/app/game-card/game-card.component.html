@@ -1,28 +1,16 @@
-<li (click)="goToCard()">
-    <div>
-        Id : {{game.id}}
-        <ul>
-            <div *ngIf = "game.ended; else elseBlock">
-                <table> 
-                    <tr>
-                        <td><app-game-details-move [move]='game.tour2'></app-game-details-move></td>
-                        <td><app-game-details-move [move]='game.tour1'></app-game-details-move></td>
-                    </tr>
-                </table>
-                <li> Résultat :
-                    <span *ngIf = "game.winner === null; else elseWinner">
-                        Egalité
-                    </span>
-                    <ng-template #elseWinner>
-                        <a [routerLink]="['/profile/', winner]">
-                            <span (click)="$event.stopPropagation()"> {{winner}} </span>
-                        </a>
-                    </ng-template>
-                </li>
-            </div>
-            <ng-template #elseBlock>
-                <li> Partie en cours </li>
-            </ng-template>
-        </ul>
+<div class="header">
+    <span class="first"> {{game.id}} </span>
+    <span class="second"> {{getResult}} </span>
+    <span class="third"> {{getStartDate}} </span>
+</div>
+
+<div class="details"> 
+    <div class="first-player"> 
+        <h3> username </h3>
+        <h4> elo </h4>
     </div>
-</li>
+    <div class="second-player"> 
+        <h3> username </h3>
+        <h4> elo </h4>
+    </div>
+</div>

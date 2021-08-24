@@ -1,3 +1,4 @@
+import {formatDate} from '@angular/common';
 import {HttpClient} from '@angular/common/http';
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
@@ -24,5 +25,13 @@ export class GameCardComponent implements OnInit {
     goToCard() {
         const path = this.game.ended ? '/game/' : '/play/';
         this.router.navigate([path, this.game.id]);
+    }
+
+    get getResult() {
+        return this.winner ? this.winner : "Egalité";
+    }
+
+    get getStartDate() {
+        return formatDate(new Date(this.game.creationDate), 'yyyy/mm/dd', 'en');
     }
 }
