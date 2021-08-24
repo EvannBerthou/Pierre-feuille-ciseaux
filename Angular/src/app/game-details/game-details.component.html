@@ -1,18 +1,26 @@
 <div *ngIf = "gameData != null; else elseBlock">
+    <div class="header">
+        <span class="first"> {{gameid}} </span>
+        <span class="second"> {{getResult}} </span>
+        <span class="third"> {{getStartDate}} </span>
+    </div>
+
     <div *ngIf = "gameData.ended; else elseEnded">
-        <p>Partie avec l'id : {{gameid}} </p>
+        <div class="plays">
+            <div class="first-player">
+                <h3 [ngClass] = "classUser1"> <a [routerLink]="['/profile/', username1]">{{username1}}</a> </h3>
+                <h5> date </h5>
+                <app-game-details-move [move] = 'gameData.tour1'> </app-game-details-move>
+                <span class="elo"> +12 (1984) </span>
+            </div>
 
-        <table id="card">
-            <tr>
-                <th [ngClass] = "classUser1"> <a [routerLink]="['/profile/', username1]">{{username1}}</a></th>
-                <th [ngClass] = "classUser2"> <a [routerLink]="['/profile/', username2]">{{username2}}</a></th>
-            </tr>
-            <tr>
-                <td> <app-game-details-move [move] = 'gameData.tour2'> </app-game-details-move> </td>
-                <td> <app-game-details-move [move] = 'gameData.tour1'> </app-game-details-move> </td>
-            </tr>
-        </table>
-
+            <div class="second-player">
+                <h3 [ngClass] = "classUser2"> <a [routerLink]="['/profile/', username2]">{{username2}}</a> </h3>
+                <h5> date </h5>
+                <app-game-details-move [move] = 'gameData.tour2'> </app-game-details-move>
+                <span class="elo"> -12 (2132) </span>
+            </div>
+        </div>
     </div>
     <ng-template #elseEnded> 
         <p> La partie n'est pas encore terminée </p>
@@ -20,5 +28,11 @@
 </div>
 
 <ng-template #elseBlock> 
-    <p> Aucune partie avec l'id {{gameid}} trouvé </p>
+    <div class="no-game-id"> 
+        <h2> Aucune partie avec l'id 
+            <span> {{gameid}} </span>
+            trouvé 
+        </h2>
+    </div>
 </ng-template>
+
